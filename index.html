@@ -1151,6 +1151,53 @@
   </span>
 </div>
 
+<!-- ── NEWS ── -->
+<section class="news" id="news">
+  <div class="container">
+    <span class="section-eyebrow reveal">News</span>
+    <h2 class="section-title reveal reveal-delay-1">お<em>知らせ</em></h2>
+    <div class="section-divider reveal reveal-delay-1"></div>
+
+    <div class="news-list" id="newsList">
+      <a class="news-item reveal" href="#" onclick="openNews(event, 0)">
+        <span class="news-date">2026.03.19</span>
+        <span class="news-title">看板犬をおむかえしました！</span>
+        <span class="news-arrow">→</span>
+      </a>
+      <a class="news-item reveal reveal-delay-1" href="#" onclick="openNews(event, 1)">
+        <span class="news-date">2026.03.15</span>
+        <span class="news-title">1 Hotel Tokyo 会員向け特典スイーツに採用されました</span>
+        <span class="news-arrow">→</span>
+      </a>
+      <a class="news-item reveal reveal-delay-2" href="#" onclick="openNews(event, 2)">
+        <span class="news-date">2025.08.30</span>
+        <span class="news-title">パリ・ポップアップ、おかげさまで完売しました</span>
+        <span class="news-arrow">→</span>
+      </a>
+      <a class="news-item reveal reveal-delay-3 news-hidden" href="#" onclick="openNews(event, 3)" style="display:none;">
+        <span class="news-date">2025.06.07</span>
+        <span class="news-title">東京・八丁堀に実店舗をオープンしました</span>
+        <span class="news-arrow">→</span>
+      </a>
+    </div>
+    <div style="text-align:right; margin-top: 16px;">
+      <button id="newsMoreBtn" onclick="toggleNewsMore()" style="background:none; border:none; cursor:pointer; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.9rem; letter-spacing:0.2em; color:var(--gold); padding:8px 0;">more →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── NEWS MODAL ── -->
+<div class="news-modal-overlay" id="newsModal" onclick="closeNewsIfOutside(event)">
+  <div class="news-modal">
+    <button class="news-modal-close" onclick="closeNews()">✕</button>
+    <span class="news-modal-date" id="modalDate"></span>
+    <h3 class="news-modal-title" id="modalTitle"></h3>
+    <div id="modalImages" style="margin-bottom: 24px;"></div>
+    <div class="news-modal-body" id="modalBody"></div>
+    <a id="modalLink" href="#" target="_blank" class="btn-primary" style="margin-top:32px; display:inline-block; font-size:0.75rem;">プレスリリースを読む →</a>
+  </div>
+</div>
+
 <!-- ── ABOUT ── -->
 <section class="about" id="about">
   <div class="container">
@@ -1271,50 +1318,6 @@
   </div>
 </section>
 
-<!-- ── NEWS ── -->
-<section class="news" id="news">
-  <div class="container">
-    <span class="section-eyebrow reveal">News</span>
-    <h2 class="section-title reveal reveal-delay-1">お<em>知らせ</em></h2>
-    <div class="section-divider reveal reveal-delay-1"></div>
-
-    <div class="news-list">
-      <a class="news-item reveal" href="#" onclick="openNews(event, 0)">
-        <span class="news-date">2026.03.19</span>
-        <span class="news-title">看板犬をおむかえしました！</span>
-        <span class="news-arrow">→</span>
-      </a>
-      <a class="news-item reveal reveal-delay-1" href="#" onclick="openNews(event, 1)">
-        <span class="news-date">2026.03.15</span>
-        <span class="news-title">1 Hotel Tokyo 会員向け特典スイーツに採用されました</span>
-        <span class="news-arrow">→</span>
-      </a>
-      <a class="news-item reveal reveal-delay-2" href="#" onclick="openNews(event, 2)">
-        <span class="news-date">2025.08.30</span>
-        <span class="news-title">パリ・ポップアップ、おかげさまで完売しました</span>
-        <span class="news-arrow">→</span>
-      </a>
-      <a class="news-item reveal reveal-delay-3" href="#" onclick="openNews(event, 3)">
-        <span class="news-date">2025.06.07</span>
-        <span class="news-title">東京・八丁堀に実店舗をオープンしました</span>
-        <span class="news-arrow">→</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ── NEWS MODAL ── -->
-<div class="news-modal-overlay" id="newsModal" onclick="closeNewsIfOutside(event)">
-  <div class="news-modal">
-    <button class="news-modal-close" onclick="closeNews()">✕</button>
-    <span class="news-modal-date" id="modalDate"></span>
-    <h3 class="news-modal-title" id="modalTitle"></h3>
-    <div id="modalImages" style="margin-bottom: 24px;"></div>
-    <div class="news-modal-body" id="modalBody"></div>
-    <a id="modalLink" href="#" target="_blank" class="btn-primary" style="margin-top:32px; display:inline-block; font-size:0.75rem;">プレスリリースを読む →</a>
-  </div>
-</div>
-
 <!-- ── CONTACT ── -->
 <section class="contact" id="contact">
   <div class="container">
@@ -1433,12 +1436,21 @@
   }, { threshold: 0.12 });
   reveals.forEach(el => observer.observe(el));
 
+  // ── ニュースmore/less ──
+  function toggleNewsMore() {
+    const hidden = document.querySelectorAll('.news-hidden');
+    const btn = document.getElementById('newsMoreBtn');
+    const isOpen = btn.textContent.includes('less');
+    hidden.forEach(el => el.style.display = isOpen ? 'none' : 'grid');
+    btn.textContent = isOpen ? 'more →' : '← less';
+  }
+
   // ── ニュースモーダル ──
   const newsData = [
     {
       date: '2026.03.19',
       title: '看板犬をおむかえしました！',
-      body: 'マツイノカヌレに新たなメンバーが加わりました。\n\n名前はカヌマル。1月6日生まれのビジョンフリーゼの女の子です。名前の由来は「カヌレ屋さんのまんまるなワンコ」から、ナホちゃんが命名してくれました。\n\nまだまだ子犬なので寝ていることがほとんど。カヌマルに会いに来てくださったのに爆睡で起きない…なんてこともありますが、寝るのが仕事の子犬ちゃん。どうか温かい目で見守っていただけたら嬉しいです。よろしくお願いします🐾',
+      body: 'マツイノカヌレに新たなメンバーが加わりました。\n\n名前はカヌマル。1月6日生まれのビジョンフリーゼの女の子です。名前の由来は「カヌレ屋さんのまんまるなワンコ」だからです🥰\n\nまだまだ子犬なので寝ていることがほとんど。カヌマルに会いに来てくださったのに爆睡で起きない…なんてこともありますが、寝るのが仕事の子犬ちゃん。どうか温かい目で見守っていただけたら嬉しいです。よろしくお願いします🐾',
       link: null,
       images: ['kanumarl1.jpg', 'kanumarl2.jpg']
     },
