@@ -980,6 +980,108 @@
     .gallery-track { padding: 0 24px 24px; }
   }
 
+  /* ── NEWS ── */
+  .news {
+    background: var(--cream2);
+    padding: 120px 0;
+  }
+  .news-list {
+    margin-top: 56px;
+    border-top: 1px solid var(--cream2);
+  }
+  .news-item {
+    display: grid;
+    grid-template-columns: 160px 1fr auto;
+    align-items: center;
+    gap: 32px;
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(61,43,26,0.1);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.3s;
+  }
+  .news-item:hover { background: rgba(184,131,58,0.04); padding-left: 12px; padding-right: 12px; margin: 0 -12px; }
+  .news-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.82rem;
+    font-style: italic;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+  .news-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    color: var(--dark);
+    line-height: 1.7;
+  }
+  .news-arrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--gold);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .news-item:hover .news-arrow { opacity: 1; }
+
+  /* ── NEWS MODAL ── */
+  .news-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(28,21,16,0.7);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .news-modal-overlay.open { display: flex; }
+  .news-modal {
+    background: var(--cream);
+    max-width: 600px;
+    width: 100%;
+    padding: 56px 48px;
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  .news-modal-close {
+    position: absolute;
+    top: 20px; right: 24px;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--warm);
+    line-height: 1;
+  }
+  .news-modal-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.82rem;
+    font-style: italic;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 16px;
+  }
+  .news-modal-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--dark);
+    letter-spacing: 0.05em;
+    margin-bottom: 24px;
+    line-height: 1.4;
+  }
+  .news-modal-body {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.88rem;
+    line-height: 2.2;
+    color: var(--warm);
+    letter-spacing: 0.06em;
+  }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     nav { padding: 16px 24px; }
@@ -1015,6 +1117,7 @@
   <a href="#" class="nav-logo">Matsui no Canelé</a>
   <ul class="nav-links">
     <li><a href="#about">ブランドについて</a></li>
+    <li><a href="#news">お知らせ</a></li>
     <li><a href="#shop">店舗情報</a></li>
     <li><a href="#contact">お問い合わせ</a></li>
     <li><a href="https://matsui-no-canele.square.site/" target="_blank" class="nav-cta">オンライン注文</a></li>
@@ -1104,7 +1207,7 @@
 <section class="paris">
   <div class="container">
     <span class="section-eyebrow reveal">2025 — Paris</span>
-    <h2 class="section-title reveal reveal-delay-1">本場パリで、<em>証明</em>した。</h2>
+    <h2 class="section-title reveal reveal-delay-1">本場フランスで、<em>証明</em>した。</h2>
     <div class="section-divider reveal reveal-delay-1"></div>
     <p class="paris-body reveal reveal-delay-2">
       2025年、パリでのポップアップを開催し完売。本場フランスでも「本物だ」と言わしめました。
@@ -1174,6 +1277,43 @@
   </div>
 </section>
 
+<!-- ── NEWS ── -->
+<section class="news" id="news">
+  <div class="container">
+    <span class="section-eyebrow reveal">News</span>
+    <h2 class="section-title reveal reveal-delay-1">お<em>知らせ</em></h2>
+    <div class="section-divider reveal reveal-delay-1"></div>
+
+    <div class="news-list">
+      <a class="news-item reveal" href="#" onclick="openNews(event, 0)">
+        <span class="news-date">2025.06.16</span>
+        <span class="news-title">東京・八丁堀に実店舗をオープンしました</span>
+        <span class="news-arrow">→</span>
+      </a>
+      <a class="news-item reveal reveal-delay-1" href="#" onclick="openNews(event, 1)">
+        <span class="news-date">2025.05.10</span>
+        <span class="news-title">パリ・ポップアップ、おかげさまで完売しました</span>
+        <span class="news-arrow">→</span>
+      </a>
+      <a class="news-item reveal reveal-delay-2" href="#" onclick="openNews(event, 2)">
+        <span class="news-date">2025.04.01</span>
+        <span class="news-title">1 Hotel Tokyo 会員向け特典スイーツに採用されました</span>
+        <span class="news-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── NEWS MODAL ── -->
+<div class="news-modal-overlay" id="newsModal" onclick="closeNewsIfOutside(event)">
+  <div class="news-modal">
+    <button class="news-modal-close" onclick="closeNews()">✕</button>
+    <span class="news-modal-date" id="modalDate"></span>
+    <h3 class="news-modal-title" id="modalTitle"></h3>
+    <div class="news-modal-body" id="modalBody"></div>
+  </div>
+</div>
+
 <!-- ── CONTACT ── -->
 <section class="contact" id="contact">
   <div class="container">
@@ -1188,8 +1328,8 @@
           通常2〜3営業日以内にご返信いたします。
         </p>
         <div class="contact-note">
-          Instagram: @matsui_no_canele_tokyo<br>
-          Threads: @shun_matsui94<br><br>
+          Email: matsui@matsuinocanele.com<br>
+          Instagram: @matsui_no_canele_tokyo<br><br>
           SNSのDMでもお気軽にどうぞ。
         </div>
       </div>
@@ -1292,7 +1432,42 @@
   }, { threshold: 0.12 });
   reveals.forEach(el => observer.observe(el));
 
-  // ── フォーム送信（デモ） ──
+  // ── ニュースモーダル ──
+  const newsData = [
+    {
+      date: '2025.06.16',
+      title: '東京・八丁堀に実店舗をオープンしました',
+      body: '2025年6月16日、東京・八丁堀に「マツイノカヌレ」の実店舗をオープンしました。毎日焼きたてのカヌレをご用意しています。営業時間・アクセスは店舗情報欄をご確認ください。ご来店をお待ちしております。'
+    },
+    {
+      date: '2025.05.10',
+      title: 'パリ・ポップアップ、おかげさまで完売しました',
+      body: '2025年5月、フランス・パリで開催したポップアップイベントにて、全商品を完売することができました。本場フランスのお客様にもご好評いただき、大変光栄に思っております。今後も国内外での展開を続けてまいります。'
+    },
+    {
+      date: '2025.04.01',
+      title: '1 Hotel Tokyo 会員向け特典スイーツに採用されました',
+      body: 'サステナブルラグジュアリーホテル「1 Hotel Tokyo」の会員向け特典スイーツとして、マツイノカヌレが採用されました。上質な空間にふさわしいカヌレをお届けできることを嬉しく思います。'
+    }
+  ];
+
+  function openNews(e, index) {
+    e.preventDefault();
+    const d = newsData[index];
+    document.getElementById('modalDate').textContent = d.date;
+    document.getElementById('modalTitle').textContent = d.title;
+    document.getElementById('modalBody').textContent = d.body;
+    document.getElementById('newsModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeNews() {
+    document.getElementById('newsModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeNewsIfOutside(e) {
+    if (e.target === document.getElementById('newsModal')) closeNews();
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('.form-submit');
