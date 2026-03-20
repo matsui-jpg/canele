@@ -1280,18 +1280,23 @@
 
     <div class="news-list">
       <a class="news-item reveal" href="#" onclick="openNews(event, 0)">
-        <span class="news-date">2025.06.07</span>
-        <span class="news-title">東京・八丁堀に実店舗をオープンしました</span>
+        <span class="news-date">2026.03.19</span>
+        <span class="news-title">看板犬をおむかえしました！</span>
         <span class="news-arrow">→</span>
       </a>
       <a class="news-item reveal reveal-delay-1" href="#" onclick="openNews(event, 1)">
+        <span class="news-date">2026.03.15</span>
+        <span class="news-title">1 Hotel Tokyo 会員向け特典スイーツに採用されました</span>
+        <span class="news-arrow">→</span>
+      </a>
+      <a class="news-item reveal reveal-delay-2" href="#" onclick="openNews(event, 2)">
         <span class="news-date">2025.08.30</span>
         <span class="news-title">パリ・ポップアップ、おかげさまで完売しました</span>
         <span class="news-arrow">→</span>
       </a>
-      <a class="news-item reveal reveal-delay-2" href="#" onclick="openNews(event, 2)">
-        <span class="news-date">2026.03.15</span>
-        <span class="news-title">1 Hotel Tokyo 会員向け特典スイーツに採用されました</span>
+      <a class="news-item reveal reveal-delay-3" href="#" onclick="openNews(event, 3)">
+        <span class="news-date">2025.06.07</span>
+        <span class="news-title">東京・八丁堀に実店舗をオープンしました</span>
         <span class="news-arrow">→</span>
       </a>
     </div>
@@ -1304,6 +1309,7 @@
     <button class="news-modal-close" onclick="closeNews()">✕</button>
     <span class="news-modal-date" id="modalDate"></span>
     <h3 class="news-modal-title" id="modalTitle"></h3>
+    <div id="modalImages" style="margin-bottom: 24px;"></div>
     <div class="news-modal-body" id="modalBody"></div>
     <a id="modalLink" href="#" target="_blank" class="btn-primary" style="margin-top:32px; display:inline-block; font-size:0.75rem;">プレスリリースを読む →</a>
   </div>
@@ -1430,22 +1436,32 @@
   // ── ニュースモーダル ──
   const newsData = [
     {
-      date: '2025.06.07',
-      title: '東京・八丁堀に実店舗をオープンしました',
-      body: '2025年6月7日、東京・八丁堀に「マツイノカヌレ」の実店舗をオープンしました。毎日焼きたてのカヌレをご用意しています。営業時間・アクセスは店舗情報欄をご確認ください。ご来店をお待ちしております。',
-      link: null
-    },
-    {
-      date: '2025.08.30',
-      title: 'パリ・ポップアップ、おかげさまで完売しました',
-      body: '2025年8月、フランス・パリで開催したポップアップイベントにて、全商品を完売することができました。本場フランスのお客様にもご好評いただき、大変光栄に思っております。今後も国内外での展開を続けてまいります。',
-      link: null
+      date: '2026.03.19',
+      title: '看板犬をおむかえしました！',
+      body: 'マツイノカヌレに新たなメンバーが加わりました。\n\n名前はカヌマル。1月6日生まれのビジョンフリーゼの女の子です。名前の由来は「カヌレ屋さんのまんまるなワンコ」から、ナホちゃんが命名してくれました。\n\nまだまだ子犬なので寝ていることがほとんど。カヌマルに会いに来てくださったのに爆睡で起きない…なんてこともありますが、寝るのが仕事の子犬ちゃん。どうか温かい目で見守っていただけたら嬉しいです。よろしくお願いします🐾',
+      link: null,
+      images: ['kanumarl1.jpg', 'kanumarl2.jpg']
     },
     {
       date: '2026.03.15',
       title: '1 Hotel Tokyo 会員向け特典スイーツに採用されました',
       body: 'サステナブルラグジュアリーホテル「1 Hotel Tokyo」の会員向け特典スイーツとして、マツイノカヌレが採用されました。上質な空間にふさわしいカヌレをお届けできることを嬉しく思います。詳しくはプレスリリースをご覧ください。',
-      link: 'https://prtimes.jp/main/html/rd/p/000000003.000179776.html'
+      link: 'https://prtimes.jp/main/html/rd/p/000000003.000179776.html',
+      images: []
+    },
+    {
+      date: '2025.08.30',
+      title: 'パリ・ポップアップ、おかげさまで完売しました',
+      body: '2025年8月、フランス・パリで開催したポップアップイベントにて、全商品を完売することができました。本場フランスのお客様にもご好評いただき、大変光栄に思っております。今後も国内外での展開を続けてまいります。',
+      link: null,
+      images: []
+    },
+    {
+      date: '2025.06.07',
+      title: '東京・八丁堀に実店舗をオープンしました',
+      body: '2025年6月7日、東京・八丁堀に「マツイノカヌレ」の実店舗をオープンしました。毎日焼きたてのカヌレをご用意しています。営業時間・アクセスは店舗情報欄をご確認ください。ご来店をお待ちしております。',
+      link: null,
+      images: []
     }
   ];
 
@@ -1454,13 +1470,26 @@
     const d = newsData[index];
     document.getElementById('modalDate').textContent = d.date;
     document.getElementById('modalTitle').textContent = d.title;
-    document.getElementById('modalBody').textContent = d.body;
+    document.getElementById('modalBody').innerHTML = d.body.replace(/\n/g, '<br>');
     const linkEl = document.getElementById('modalLink');
     if (d.link) {
       linkEl.href = d.link;
       linkEl.style.display = 'inline-block';
     } else {
       linkEl.style.display = 'none';
+    }
+    const imgContainer = document.getElementById('modalImages');
+    imgContainer.innerHTML = '';
+    if (d.images && d.images.length > 0) {
+      d.images.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.style.cssText = 'width:100%; margin-bottom:12px; display:block;';
+        imgContainer.appendChild(img);
+      });
+      imgContainer.style.display = 'block';
+    } else {
+      imgContainer.style.display = 'none';
     }
     document.getElementById('newsModal').classList.add('open');
     document.body.style.overflow = 'hidden';
