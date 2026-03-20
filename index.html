@@ -989,6 +989,59 @@
     .gallery-track { padding: 0 24px 24px; }
   }
 
+  /* ── CUSTOMER VOICES ── */
+  .voices {
+    background: var(--dark);
+    padding: 120px 0;
+    overflow: hidden;
+  }
+  .voices .section-title { color: var(--cream); }
+  .voices .section-eyebrow { color: var(--gold2); }
+  .voices .section-divider { background: var(--gold2); }
+  .voices-track {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 48px 24px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold) var(--brown);
+    margin-top: 56px;
+  }
+  .voices-track::-webkit-scrollbar { height: 4px; }
+  .voices-track::-webkit-scrollbar-track { background: var(--brown); }
+  .voices-track::-webkit-scrollbar-thumb { background: var(--gold); }
+  .voice-card {
+    flex: 0 0 340px;
+    scroll-snap-align: start;
+    background: var(--brown);
+    padding: 40px 36px;
+    position: relative;
+  }
+  .voice-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--gold);
+    opacity: 0.4;
+    line-height: 1;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .voice-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.85rem;
+    font-weight: 300;
+    line-height: 2.2;
+    color: rgba(245,239,227,0.8);
+    letter-spacing: 0.06em;
+  }
+  @media (max-width: 600px) {
+    .voice-card { flex: 0 0 280px; }
+    .voices-track { padding: 0 24px 24px; }
+  }
+
   /* ── NEWS ── */
   .news {
     background: var(--cream2);
@@ -1266,6 +1319,41 @@
       2025年、パリでのポップアップを開催し完売。本場フランスでも「本物だ」と言わしめました。
     </p>
     <a href="https://matsui-no-canele.square.site/" target="_blank" class="btn-primary reveal reveal-delay-2">オンラインで注文する</a>
+  </div>
+</section>
+
+<!-- ── CUSTOMER VOICES ── -->
+<section class="voices">
+  <div class="container">
+    <span class="section-eyebrow reveal">Customer Voices</span>
+    <h2 class="section-title reveal reveal-delay-1">お客様の<em>声</em></h2>
+    <div class="section-divider reveal reveal-delay-1"></div>
+  </div>
+  <div class="voices-track">
+    <div class="voice-card reveal">
+      <span class="voice-quote">"</span>
+      <p class="voice-text">私のカヌレに対する価値観を変えて頂き有難うございました！バスクチーズもまたビックリするほど美味しかったです！！食べ物の美味しさでビックリ体験をすることはほとんどなくなってきていますが、お店に行くたびにビックリ体験ができるのはとても嬉しく思います🥰</p>
+    </div>
+    <div class="voice-card reveal reveal-delay-1">
+      <span class="voice-quote">"</span>
+      <p class="voice-text">最近では残業終わりに購入し、自宅で婚約者とマツイノカヌレを楽しむのが日課になっています。毎日食べても、毎日美味しいと感じるマツイノカヌレ。昨日も買ったけど、今日も買って帰っちゃおう！と思うくらい美味しいです。</p>
+    </div>
+    <div class="voice-card reveal reveal-delay-2">
+      <span class="voice-quote">"</span>
+      <p class="voice-text">食感、味がこれまでに食べたカヌレと異なり、「人に紹介したい」と即感じたカヌレでした！職場、家族に持って行ったらどちらも大好評で、私も嬉しくなりました。今後も様々なフレーバーを楽しませていただきたいと思います。</p>
+    </div>
+    <div class="voice-card reveal reveal-delay-3">
+      <span class="voice-quote">"</span>
+      <p class="voice-text">カヌレに苦手意識がありましたが、こちらのカヌレは、ふわっとした軽い食感で、初めてカヌレが美味しいと思えました！美味しすぎて翌日お土産用にも買いに行った際に保存方法も教えていただけて、手土産にも使えるのはありがたいです。</p>
+    </div>
+    <div class="voice-card reveal">
+      <span class="voice-quote">"</span>
+      <p class="voice-text">カヌレもともと好きでしたが、マツイさんとこのカヌレが今まで食べた物の中で最高に美味しかったです。ギフト用のWeb通販があるのが家族や友人にも送れるのでありがたいです。八丁堀なかなかスイーツ屋さん少ないのでカヌレ屋さんできて本当に嬉しいです。</p>
+    </div>
+    <div class="voice-card reveal reveal-delay-1">
+      <span class="voice-quote">"</span>
+      <p class="voice-text">店主マツイさんの気さくなお人柄と、カヌレの確かな美味しさに魅了されて、周りの友達に勧めたり連れて行ったり手土産にしたり既に普及活動してます笑 また行きまーす！</p>
+    </div>
   </div>
 </section>
 
