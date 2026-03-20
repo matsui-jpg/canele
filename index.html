@@ -942,6 +942,44 @@
   .reveal-delay-2 { transition-delay: 0.3s; }
   .reveal-delay-3 { transition-delay: 0.45s; }
 
+  /* ── PHOTO GALLERY ── */
+  .gallery {
+    background: var(--cream);
+    padding: 80px 0;
+    overflow: hidden;
+  }
+  .gallery-track {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 48px 24px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold) var(--cream2);
+  }
+  .gallery-track::-webkit-scrollbar { height: 4px; }
+  .gallery-track::-webkit-scrollbar-track { background: var(--cream2); }
+  .gallery-track::-webkit-scrollbar-thumb { background: var(--gold); }
+  .gallery-item {
+    flex: 0 0 400px;
+    scroll-snap-align: start;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    position: relative;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .gallery-item:hover img { transform: scale(1.04); }
+  @media (max-width: 600px) {
+    .gallery-item { flex: 0 0 280px; }
+    .gallery-track { padding: 0 24px 24px; }
+  }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     nav { padding: 16px 24px; }
@@ -977,7 +1015,6 @@
   <a href="#" class="nav-logo">Matsui no Canelé</a>
   <ul class="nav-links">
     <li><a href="#about">ブランドについて</a></li>
-    <li><a href="#flavors">フレーバー</a></li>
     <li><a href="#shop">店舗情報</a></li>
     <li><a href="#contact">お問い合わせ</a></li>
     <li><a href="https://matsui-no-canele.square.site/" target="_blank" class="nav-cta">オンライン注文</a></li>
@@ -1017,9 +1054,7 @@
     <div class="about-inner">
       <div class="about-visual reveal">
         <div class="about-img-frame">
-          <p class="about-img-placeholder">
-            店舗・カヌレの<br>写真をここに配置
-          </p>
+          <img src="shop.jpg" alt="マツイノカヌレ 店舗外観" style="width:100%;height:100%;object-fit:cover;">
         </div>
       </div>
       <div class="about-text">
@@ -1037,17 +1072,9 @@
           2025年、パリでのポップアップを開催し完売。本場フランスでも認められた品質を、東京から全国へお届けしています。
         </p>
         <p class="reveal reveal-delay-2">
-          1 Hotel Tokyoの会員向け特典スイーツとして採用されるなど、国内外のラグジュアリーシーンにも着実に浸透しています。
+          サステナブルラグジュアリーホテル「1Hotel Tokyo」の会員向け特典スイーツとして採用されるなど、国内外のラグジュアリーシーンにも着実に浸透しています。
         </p>
         <div class="about-stats reveal reveal-delay-3">
-          <div class="stat-item">
-            <span class="stat-num">2025</span>
-            <span class="stat-label">創業年</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-num">4+</span>
-            <span class="stat-label">フレーバー常時展開</span>
-          </div>
           <div class="stat-item">
             <span class="stat-num">全国</span>
             <span class="stat-label">冷凍配送対応</span>
@@ -1058,41 +1085,18 @@
   </div>
 </section>
 
-<!-- ── FLAVORS ── -->
-<section class="flavors" id="flavors">
-  <div class="container">
-    <div class="flavors-header">
-      <div>
-        <span class="section-eyebrow reveal">Nos Saveurs</span>
-        <h2 class="section-title reveal reveal-delay-1">常時4フレーバー、<br><em>期間限定</em>1種。</h2>
-      </div>
-      <a href="https://matsui-no-canele.square.site/" target="_blank" class="flavor-link reveal">すべて見る</a>
+<!-- ── PHOTO GALLERY ── -->
+<section class="gallery">
+  <div class="gallery-track">
+    <div class="gallery-item reveal">
+      <img src="shop.jpg" alt="店舗外観">
     </div>
-
-    <div class="flavor-grid">
-      <div class="flavor-card reveal">
-        <span class="flavor-num">01</span>
-        <span class="flavor-tag">Classic</span>
-        <span class="flavor-name">プレーン</span>
-      </div>
-      <div class="flavor-card reveal reveal-delay-1">
-        <span class="flavor-num">02</span>
-        <span class="flavor-tag">Elegant</span>
-        <span class="flavor-name">アールグレイ</span>
-      </div>
-      <div class="flavor-card reveal reveal-delay-2">
-        <span class="flavor-num">03</span>
-        <span class="flavor-tag">Rich</span>
-        <span class="flavor-name">ショコラ</span>
-      </div>
-      <div class="flavor-card flavor-card-limited reveal reveal-delay-3">
-        <div class="limited-badge">期間限定</div>
-        <span class="flavor-num">04</span>
-        <span class="flavor-tag">Limited</span>
-        <span class="flavor-name">さくら</span>
-      </div>
+    <div class="gallery-item reveal reveal-delay-1">
+      <img src="canele1.jpg" alt="焼きたてカヌレ">
     </div>
-
+    <div class="gallery-item reveal reveal-delay-2">
+      <img src="canele2.jpg" alt="カヌレ断面">
+    </div>
   </div>
 </section>
 
@@ -1248,7 +1252,6 @@
         <span class="footer-col-title">ページ</span>
         <ul class="footer-links">
           <li><a href="#about">ブランドについて</a></li>
-          <li><a href="#flavors">フレーバー</a></li>
           <li><a href="#shop">店舗情報</a></li>
           <li><a href="#contact">お問い合わせ</a></li>
           <li><a href="https://matsui-no-canele.square.site/" target="_blank">オンライン注文</a></li>
@@ -1258,7 +1261,6 @@
         <span class="footer-col-title">SNS</span>
         <ul class="footer-links">
           <li><a href="https://www.instagram.com/matsui_no_canele_tokyo" target="_blank">Instagram</a></li>
-          <li><a href="#" target="_blank">Threads</a></li>
         </ul>
         <span class="footer-col-title" style="margin-top:32px; display:block;">所在地</span>
         <p class="footer-desc">東京都中央区<br>八丁堀３－２７－１４</p>
