@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>マツイノカヌレ | 東京・八丁堀のカヌレ専門店</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:   #F5EFE3;
+    --cream2:  #EDE4D2;
+    --gold:    #B8833A;
+    --gold2:   #D4A85A;
+    --dark:    #1C1510;
+    --brown:   #3D2B1A;
+    --warm:    #8B6B47;
+    --text:    #2A1E12;
+    --gray:    #7A6A58;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NAVIGATION ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    mix-blend-mode: normal;
+    transition: background 0.4s, padding 0.4s;
+  }
+  nav.scrolled {
+    background: rgba(245,239,227,0.96);
+    backdrop-filter: blur(8px);
+    padding: 14px 48px;
+    border-bottom: 1px solid var(--cream2);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: var(--cream);
+    text-decoration: none;
+    transition: color 0.4s;
+  }
+  nav.scrolled .nav-logo { color: var(--dark); }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    color: rgba(245,239,227,0.85);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  nav.scrolled .nav-links a { color: var(--warm); }
+  .nav-links a:hover { color: var(--gold2) !important; }
+
+  .nav-cta {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    color: var(--dark) !important;
+    background: var(--gold2);
+    padding: 8px 22px;
+    border: none;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--cream) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    height: 100vh;
+    min-height: 700px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--dark);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 60%, rgba(184,131,58,0.18) 0%, transparent 55%),
+      radial-gradient(ellipse at 75% 30%, rgba(61,43,26,0.6) 0%, transparent 60%),
+      linear-gradient(160deg, #1C1510 0%, #2D1E0E 50%, #1A1008 100%);
+  }
+
+  /* テクスチャオーバーレイ */
+  .hero-texture {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='1' height='1' fill='%23fff'/%3E%3C/svg%3E");
+  }
+
+  /* 装飾ライン */
+  .hero-line-left {
+    position: absolute;
+    left: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 200px;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    opacity: 0.6;
+  }
+  .hero-line-right {
+    position: absolute;
+    right: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 200px;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    opacity: 0.6;
+  }
+
+  .hero-content {
+    position: relative;
+    text-align: center;
+    padding: 0 24px;
+    animation: fadeUp 1.2s ease both;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.35em;
+    color: var(--gold2);
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--cream);
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold2);
+  }
+
+  .hero-subtitle-jp {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    letter-spacing: 0.4em;
+    color: rgba(245,239,227,0.55);
+    margin-bottom: 40px;
+    margin-top: 16px;
+  }
+
+  .hero-divider {
+    width: 48px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto 32px;
+    opacity: 0.7;
+  }
+
+  .hero-desc {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.82rem;
+    font-weight: 300;
+    letter-spacing: 0.22em;
+    color: rgba(245,239,227,0.6);
+    margin-bottom: 52px;
+    line-height: 2;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    color: var(--dark);
+    background: var(--gold2);
+    padding: 14px 36px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold); transform: translateY(-1px); }
+
+  .btn-outline {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    color: var(--cream);
+    background: transparent;
+    padding: 13px 36px;
+    border: 1px solid rgba(245,239,227,0.3);
+    text-decoration: none;
+    transition: border-color 0.3s, color 0.3s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--gold2); color: var(--gold2); }
+
+  /* ── BADGE ── */
+  .badge-strip {
+    background: var(--brown);
+    padding: 12px 0;
+    text-align: center;
+    overflow: hidden;
+  }
+  .badge-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.8rem;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.4em;
+    color: var(--gold2);
+    white-space: nowrap;
+    animation: marquee 20s linear infinite;
+    display: inline-block;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 120px 0; }
+
+  .section-eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.78rem;
+    font-style: italic;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--dark);
+    letter-spacing: 0.02em;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  .section-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    margin: 24px 0;
+    opacity: 0.6;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  /* ── ABOUT / STORY ── */
+  .about {
+    background: var(--cream);
+    overflow: hidden;
+  }
+
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-img-frame {
+    background: var(--cream2);
+    aspect-ratio: 4/5;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-img-placeholder {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-style: italic;
+    letter-spacing: 0.2em;
+    color: var(--warm);
+    opacity: 0.5;
+    text-align: center;
+  }
+
+  /* 装飾枠 */
+  .about-img-frame::before {
+    content: '';
+    position: absolute;
+    top: -16px; left: -16px;
+    width: 120px; height: 120px;
+    border-top: 1px solid var(--gold);
+    border-left: 1px solid var(--gold);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  .about-img-frame::after {
+    content: '';
+    position: absolute;
+    bottom: -16px; right: -16px;
+    width: 120px; height: 120px;
+    border-bottom: 1px solid var(--gold);
+    border-right: 1px solid var(--gold);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .about-badge {
+    position: absolute;
+    bottom: -24px;
+    right: -24px;
+    background: var(--dark);
+    color: var(--gold2);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.72rem;
+    font-style: italic;
+    letter-spacing: 0.2em;
+    padding: 20px 24px;
+    text-align: center;
+    line-height: 1.8;
+    min-width: 140px;
+  }
+
+  .about-text p {
+    font-size: 0.88rem;
+    line-height: 2.2;
+    color: var(--warm);
+    margin-bottom: 20px;
+    letter-spacing: 0.08em;
+  }
+
+  .about-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid var(--cream2);
+  }
+
+  .stat-item { text-align: left; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    color: var(--gray);
+    display: block;
+  }
+
+  /* ── FLAVORS ── */
+  .flavors {
+    background: var(--dark);
+    padding: 120px 0;
+  }
+
+  .flavors .section-title { color: var(--cream); }
+  .flavors .section-eyebrow { color: var(--gold2); }
+
+  .flavors-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 64px;
+  }
+
+  .flavor-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+  }
+
+  .flavor-card {
+    background: var(--brown);
+    aspect-ratio: 3/4;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 28px 24px;
+    transition: transform 0.4s;
+  }
+  .flavor-card:hover { transform: scale(1.02); }
+
+  .flavor-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(28,21,16,0.85) 0%, transparent 60%);
+  }
+
+  .flavor-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    font-weight: 300;
+    color: rgba(212,168,90,0.15);
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    line-height: 1;
+  }
+
+  .flavor-tag {
+    position: relative;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.7rem;
+    font-style: italic;
+    letter-spacing: 0.25em;
+    color: var(--gold2);
+    margin-bottom: 8px;
+  }
+
+  .flavor-name {
+    position: relative;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: var(--cream);
+  }
+
+  .flavor-card-limited {
+    background: linear-gradient(135deg, #2D1E0E, #1C1510);
+    border: 1px solid rgba(212,168,90,0.3);
+  }
+
+  .limited-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: var(--gold);
+    color: var(--dark);
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    padding: 4px 10px;
+  }
+
+  .flavor-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.88rem;
+    font-style: italic;
+    letter-spacing: 0.25em;
+    color: var(--gold2);
+    text-decoration: none;
+    transition: gap 0.3s;
+  }
+  .flavor-link:hover { gap: 14px; }
+  .flavor-link::after { content: '→'; }
+
+  /* ── FEATURES / こだわり ── */
+  .features {
+    background: var(--cream2);
+    padding: 120px 0;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    margin-top: 64px;
+    background: var(--cream2);
+  }
+
+  .feature-item {
+    background: var(--cream);
+    padding: 52px 40px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.4s;
+  }
+  .feature-item:hover { background: #F8F1E4; }
+
+  .feature-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: var(--cream2);
+    position: absolute;
+    top: 20px;
+    right: 28px;
+    line-height: 1;
+  }
+
+  .feature-icon {
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+    margin-bottom: 32px;
+  }
+
+  .feature-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: var(--dark);
+    margin-bottom: 16px;
+  }
+
+  .feature-body {
+    font-size: 0.8rem;
+    line-height: 2.1;
+    color: var(--warm);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── PARIS / 実績 ── */
+  .paris {
+    background: var(--brown);
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .paris::before {
+    content: 'PARIS';
+    position: absolute;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20vw;
+    font-weight: 300;
+    color: rgba(212,168,90,0.06);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    letter-spacing: 0.2em;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .paris .section-title { color: var(--cream); }
+  .paris .section-divider { margin: 24px auto; }
+
+  .paris-body {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.85rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: rgba(245,239,227,0.65);
+    line-height: 2.4;
+    max-width: 500px;
+    margin: 0 auto 48px;
+  }
+
+  .paris-stats {
+    display: flex;
+    gap: 72px;
+    justify-content: center;
+    margin-top: 64px;
+  }
+
+  .paris-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: var(--gold2);
+    display: block;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .paris-stat-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    color: rgba(245,239,227,0.5);
+    display: block;
+  }
+
+  /* ── 店舗情報 ── */
+  .shop {
+    background: var(--cream);
+    padding: 120px 0;
+  }
+
+  .shop-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .shop-info-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    color: var(--gray);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .shop-info-value {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.88rem;
+    letter-spacing: 0.1em;
+    color: var(--dark);
+    line-height: 1.8;
+    margin-bottom: 36px;
+    display: block;
+  }
+
+  /* 営業時間表 */
+  .hours-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 36px;
+  }
+  .hours-table th, .hours-table td {
+    padding: 10px 12px;
+    text-align: center;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    border: 1px solid var(--cream2);
+  }
+  .hours-table th {
+    background: var(--brown);
+    color: var(--gold2);
+    font-weight: 400;
+  }
+  .hours-table th:first-child { background: transparent; border-color: transparent; }
+  .hours-table td:first-child {
+    background: var(--cream2);
+    color: var(--dark);
+    font-weight: 500;
+    text-align: left;
+    padding-left: 16px;
+  }
+  .hours-table .open { color: var(--gold); }
+  .hours-table .closed { color: var(--gray); }
+
+  /* 地図エリア */
+  .map-placeholder {
+    background: var(--cream2);
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .map-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--cream2);
+  }
+
+  .map-embed {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    background: var(--dark);
+    padding: 120px 0;
+  }
+
+  .contact .section-title { color: var(--cream); }
+  .contact .section-eyebrow { color: var(--gold2); }
+  .contact .section-divider { background: var(--gold2); }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+    margin-top: 64px;
+  }
+
+  .contact-intro {
+    font-size: 0.82rem;
+    line-height: 2.3;
+    color: rgba(245,239,227,0.55);
+    letter-spacing: 0.1em;
+  }
+
+  .contact-note {
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(245,239,227,0.1);
+    font-size: 0.75rem;
+    line-height: 2;
+    color: rgba(245,239,227,0.35);
+    letter-spacing: 0.1em;
+  }
+
+  /* フォーム */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-label {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--gold2);
+  }
+  .form-label .req {
+    color: #C0774A;
+    margin-left: 4px;
+    font-size: 0.6rem;
+  }
+
+  .form-input, .form-select, .form-textarea {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(245,239,227,0.12);
+    color: var(--cream);
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    padding: 12px 16px;
+    outline: none;
+    transition: border-color 0.3s, background 0.3s;
+    width: 100%;
+    -webkit-appearance: none;
+  }
+  .form-input::placeholder, .form-textarea::placeholder { color: rgba(245,239,227,0.25); }
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--gold2);
+    background: rgba(255,255,255,0.08);
+  }
+
+  .form-select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M0 0l6 8 6-8z' fill='%23D4A85A'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+  }
+  .form-select option { background: var(--dark); }
+
+  .form-textarea { resize: vertical; min-height: 130px; }
+
+  .form-privacy {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.72rem;
+    color: rgba(245,239,227,0.4);
+    letter-spacing: 0.06em;
+    line-height: 1.7;
+  }
+  .form-privacy input[type="checkbox"] { margin-top: 2px; accent-color: var(--gold2); }
+
+  .form-submit {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.3em;
+    color: var(--dark);
+    background: var(--gold2);
+    border: none;
+    padding: 16px 48px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    align-self: flex-start;
+  }
+  .form-submit:hover { background: var(--gold); transform: translateY(-1px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #120D08;
+    padding: 64px 0 32px;
+    color: rgba(245,239,227,0.4);
+  }
+
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 64px;
+    margin-bottom: 48px;
+  }
+
+  .footer-brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: var(--cream);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .footer-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.78rem;
+    font-style: italic;
+    letter-spacing: 0.2em;
+    color: var(--gold2);
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  .footer-desc {
+    font-size: 0.75rem;
+    line-height: 2;
+    letter-spacing: 0.06em;
+  }
+
+  .footer-col-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    color: var(--gold2);
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .footer-links a {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    color: rgba(245,239,227,0.4);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .footer-links a:hover { color: var(--gold2); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(245,239,227,0.08);
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+  }
+
+  .sns-links {
+    display: flex;
+    gap: 20px;
+  }
+  .sns-links a {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: rgba(245,239,227,0.4);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .sns-links a:hover { color: var(--gold2); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.15s; }
+  .reveal-delay-2 { transition-delay: 0.3s; }
+  .reveal-delay-3 { transition-delay: 0.45s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    nav.scrolled { padding: 12px 24px; }
+    .nav-links { display: none; }
+    .container { padding: 0 24px; }
+    section { padding: 80px 0; }
+
+    .about-inner, .shop-inner, .contact-inner, .footer-inner {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .flavor-grid { grid-template-columns: repeat(2, 1fr); }
+    .features-grid { grid-template-columns: 1fr; }
+    .paris-stats { gap: 40px; flex-wrap: wrap; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    .about-badge { right: 0; bottom: -20px; }
+  }
+
+  @media (max-width: 600px) {
+    .hero-title { font-size: 3rem; }
+    .flavors-header { flex-direction: column; gap: 24px; align-items: flex-start; }
+    .flavor-grid { grid-template-columns: 1fr 1fr; }
+    .about-stats { flex-direction: column; gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav id="nav">
+  <a href="#" class="nav-logo">Matsui no Canelé</a>
+  <ul class="nav-links">
+    <li><a href="#about">ブランドについて</a></li>
+    <li><a href="#flavors">フレーバー</a></li>
+    <li><a href="#shop">店舗情報</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+    <li><a href="https://matsui-no-canele.square.site/" target="_blank" class="nav-cta">オンライン注文</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-texture"></div>
+  <div class="hero-line-left"></div>
+  <div class="hero-line-right"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">マツイノ<br><em>カヌレ</em></h1>
+    <p class="hero-subtitle-jp">東京・八丁堀のカヌレ専門店</p>
+    <div class="hero-divider"></div>
+    <p class="hero-desc">
+      ボルドーの伝統を、東京から世界へ。
+    </p>
+    <div class="hero-btns">
+      <a href="https://matsui-no-canele.square.site/" target="_blank" class="btn-primary">オンラインで注文する</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── BADGE STRIP ── -->
+<div class="badge-strip">
+  <span class="badge-text">
+    1 Hotel Tokyo 会員向け特典スイーツ 採用 &nbsp;·&nbsp; 2025年 Paris Pop-up 完売 &nbsp;·&nbsp; 冷凍全国配送対応 &nbsp;·&nbsp;
+    1 Hotel Tokyo 会員向け特典スイーツ 採用 &nbsp;·&nbsp; 2025年 Paris Pop-up 完売 &nbsp;·&nbsp; 冷凍全国配送対応 &nbsp;·&nbsp;
+  </span>
+</div>
+
+<!-- ── ABOUT ── -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-visual reveal">
+        <div class="about-img-frame">
+          <p class="about-img-placeholder">
+            店舗・カヌレの<br>写真をここに配置
+          </p>
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="section-eyebrow reveal">Notre Histoire</span>
+        <h2 class="section-title reveal reveal-delay-1">
+          カヌレ一筋。<br>
+          <em>本質</em>の追求。
+        </h2>
+        <div class="section-divider reveal reveal-delay-2"></div>
+        <p class="reveal reveal-delay-2">
+          2025年6月、東京・八丁堀に誕生したカヌレ専門店。
+毎日、製造してすぐの焼きたてカヌレを提供しています。
+        </p>
+        <p class="reveal reveal-delay-2">
+          2025年、パリでのポップアップを開催し完売。本場フランスでも認められた品質を、東京から全国へお届けしています。
+        </p>
+        <p class="reveal reveal-delay-2">
+          1 Hotel Tokyoの会員向け特典スイーツとして採用されるなど、国内外のラグジュアリーシーンにも着実に浸透しています。
+        </p>
+        <div class="about-stats reveal reveal-delay-3">
+          <div class="stat-item">
+            <span class="stat-num">2025</span>
+            <span class="stat-label">創業年</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">4+</span>
+            <span class="stat-label">フレーバー常時展開</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">全国</span>
+            <span class="stat-label">冷凍配送対応</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FLAVORS ── -->
+<section class="flavors" id="flavors">
+  <div class="container">
+    <div class="flavors-header">
+      <div>
+        <span class="section-eyebrow reveal">Nos Saveurs</span>
+        <h2 class="section-title reveal reveal-delay-1">常時4フレーバー、<br><em>期間限定</em>1種。</h2>
+      </div>
+      <a href="https://matsui-no-canele.square.site/" target="_blank" class="flavor-link reveal">すべて見る</a>
+    </div>
+
+    <div class="flavor-grid">
+      <div class="flavor-card reveal">
+        <span class="flavor-num">01</span>
+        <span class="flavor-tag">Classic</span>
+        <span class="flavor-name">プレーン</span>
+      </div>
+      <div class="flavor-card reveal reveal-delay-1">
+        <span class="flavor-num">02</span>
+        <span class="flavor-tag">Elegant</span>
+        <span class="flavor-name">アールグレイ</span>
+      </div>
+      <div class="flavor-card reveal reveal-delay-2">
+        <span class="flavor-num">03</span>
+        <span class="flavor-tag">Rich</span>
+        <span class="flavor-name">ショコラ</span>
+      </div>
+      <div class="flavor-card flavor-card-limited reveal reveal-delay-3">
+        <div class="limited-badge">期間限定</div>
+        <span class="flavor-num">04</span>
+        <span class="flavor-tag">Limited</span>
+        <span class="flavor-name">さくら</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── PARIS ── -->
+<section class="paris">
+  <div class="container">
+    <span class="section-eyebrow reveal">2025 — Paris</span>
+    <h2 class="section-title reveal reveal-delay-1">本場パリで、<em>証明</em>した。</h2>
+    <div class="section-divider reveal reveal-delay-1"></div>
+    <p class="paris-body reveal reveal-delay-2">
+      2025年、パリでのポップアップを開催し完売。本場フランスでも「本物だ」と言わしめました。
+    </p>
+    <a href="https://matsui-no-canele.square.site/" target="_blank" class="btn-primary reveal reveal-delay-2">オンラインで注文する</a>
+  </div>
+</section>
+
+<!-- ── SHOP ── -->
+<section class="shop" id="shop">
+  <div class="container">
+    <span class="section-eyebrow reveal">Notre Boutique</span>
+    <h2 class="section-title reveal reveal-delay-1">店舗<em>案内</em></h2>
+    <div class="section-divider reveal reveal-delay-1"></div>
+    <div class="shop-inner">
+      <div class="reveal">
+        <span class="shop-info-title">住所</span>
+        <span class="shop-info-value">
+          〒104-0032<br>
+          東京都中央区八丁堀３－２７－１４
+        </span>
+
+        <span class="shop-info-title">最寄り駅</span>
+        <span class="shop-info-value">
+          東京メトロ日比谷線・JR京葉線<br>
+          八丁堀駅 徒歩3分
+        </span>
+
+        <span class="shop-info-title">営業時間</span>
+        <table class="hours-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>10:00–17:00</td>
+              <td class="open">○</td><td class="open">○</td><td class="open">○</td>
+              <td class="open">○</td><td class="open">○</td><td class="open">○</td><td class="open">○</td>
+            </tr>
+            <tr>
+              <td>17:00–21:00</td>
+              <td class="closed">－</td><td class="closed">－</td><td class="open">○</td>
+              <td class="closed">－</td><td class="open">○</td><td class="closed">－</td><td class="open">○</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <span class="shop-info-title">オンライン注文</span>
+        <a href="https://matsui-no-canele.square.site/" target="_blank" class="btn-primary" style="margin-top:8px; display:inline-block;">Square ECサイトへ</a>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="map-placeholder">
+          <iframe
+            class="map-embed"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.2!2d139.773!3d35.674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889571e50a585%3A0x0!2z5p2x5Lqs6YO95Lit5aSu5Yy65YCJ5LiB5omA77yT4oiS77yS77yX4oiS77yR77yU!5e0!3m2!1sja!2sjp!4v1234567890"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact" id="contact">
+  <div class="container">
+    <span class="section-eyebrow reveal">Contact</span>
+    <h2 class="section-title reveal reveal-delay-1">お問い<em>合わせ</em></h2>
+    <div class="section-divider reveal reveal-delay-1"></div>
+
+    <div class="contact-inner">
+      <div class="reveal">
+        <p class="contact-intro">
+          卸売・メディア掲載・コラボレーション・ギフトのご相談など、お気軽にお問い合わせください。<br><br>
+          通常2〜3営業日以内にご返信いたします。
+        </p>
+        <div class="contact-note">
+          Instagram: @matsui_no_canele_tokyo<br>
+          Threads: @shun_matsui94<br><br>
+          SNSのDMでもお気軽にどうぞ。
+        </div>
+      </div>
+
+      <form class="contact-form reveal reveal-delay-1" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">お名前 <span class="req">*</span></label>
+            <input type="text" class="form-input" placeholder="松井 俊" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">会社・店舗名</label>
+            <input type="text" class="form-input" placeholder="株式会社〇〇">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">メールアドレス <span class="req">*</span></label>
+          <input type="email" class="form-input" placeholder="hello@example.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">お問い合わせ種別</label>
+          <select class="form-select">
+            <option value="">選択してください</option>
+            <option>商品・購入について</option>
+            <option>卸売・仕入れについて</option>
+            <option>メディア・取材について</option>
+            <option>コラボレーション・ギフト</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">メッセージ <span class="req">*</span></label>
+          <textarea class="form-textarea" placeholder="お問い合わせ内容をご記入ください。" required></textarea>
+        </div>
+        <div class="form-privacy">
+          <input type="checkbox" id="privacy" required>
+          <label for="privacy">プライバシーポリシーに同意のうえ送信します。いただいた情報はお問い合わせへの対応のみに使用します。</label>
+        </div>
+        <button type="submit" class="form-submit">送信する</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <span class="footer-brand-name">マツイノカヌレ</span>
+        <span class="footer-tagline">Artisan Canelé — Tokyo Hatchobori</span>
+        <p class="footer-desc">
+          東京・八丁堀のカヌレ専門店。<br>
+          毎日焼きたてのカヌレを、<br>
+          東京から全国へお届けします。
+        </p>
+      </div>
+      <div>
+        <span class="footer-col-title">ページ</span>
+        <ul class="footer-links">
+          <li><a href="#about">ブランドについて</a></li>
+          <li><a href="#flavors">フレーバー</a></li>
+          <li><a href="#shop">店舗情報</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+          <li><a href="https://matsui-no-canele.square.site/" target="_blank">オンライン注文</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="footer-col-title">SNS</span>
+        <ul class="footer-links">
+          <li><a href="https://www.instagram.com/matsui_no_canele_tokyo" target="_blank">Instagram</a></li>
+          <li><a href="#" target="_blank">Threads</a></li>
+        </ul>
+        <span class="footer-col-title" style="margin-top:32px; display:block;">所在地</span>
+        <p class="footer-desc">東京都中央区<br>八丁堀３－２７－１４</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 松井製菓株式会社 / マツイノカヌレ</span>
+      <div class="sns-links">
+        <a href="https://www.instagram.com/matsui_no_canele_tokyo" target="_blank">Instagram</a>
+        <a href="https://matsui-no-canele.square.site/" target="_blank">Online Shop</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── スクロール時のナビゲーション変化 ──
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // ── スクロールアニメーション ──
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // ── フォーム送信（デモ） ──
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = '送信しました。ありがとうございます。';
+    btn.style.background = '#5C8A5C';
+    btn.style.letterSpacing = '0.15em';
+    setTimeout(() => {
+      btn.textContent = '送信する';
+      btn.style.background = '';
+      btn.style.letterSpacing = '';
+      e.target.reset();
+    }, 4000);
+  }
+</script>
+</body>
+</html>
