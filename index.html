@@ -1207,7 +1207,7 @@
 <section class="paris">
   <div class="container">
     <span class="section-eyebrow reveal">2025 — Paris</span>
-    <h2 class="section-title reveal reveal-delay-1">本場フランスで、<em>証明</em>した。</h2>
+    <h2 class="section-title reveal reveal-delay-1">本場フランスで、<br><em>証明</em>した。</h2>
     <div class="section-divider reveal reveal-delay-1"></div>
     <p class="paris-body reveal reveal-delay-2">
       2025年、パリでのポップアップを開催し完売。本場フランスでも「本物だ」と言わしめました。
@@ -1286,17 +1286,17 @@
 
     <div class="news-list">
       <a class="news-item reveal" href="#" onclick="openNews(event, 0)">
-        <span class="news-date">2025.06.16</span>
+        <span class="news-date">2025.06.07</span>
         <span class="news-title">東京・八丁堀に実店舗をオープンしました</span>
         <span class="news-arrow">→</span>
       </a>
       <a class="news-item reveal reveal-delay-1" href="#" onclick="openNews(event, 1)">
-        <span class="news-date">2025.05.10</span>
+        <span class="news-date">2025.08.30</span>
         <span class="news-title">パリ・ポップアップ、おかげさまで完売しました</span>
         <span class="news-arrow">→</span>
       </a>
       <a class="news-item reveal reveal-delay-2" href="#" onclick="openNews(event, 2)">
-        <span class="news-date">2025.04.01</span>
+        <span class="news-date">2026.03.15</span>
         <span class="news-title">1 Hotel Tokyo 会員向け特典スイーツに採用されました</span>
         <span class="news-arrow">→</span>
       </a>
@@ -1311,6 +1311,7 @@
     <span class="news-modal-date" id="modalDate"></span>
     <h3 class="news-modal-title" id="modalTitle"></h3>
     <div class="news-modal-body" id="modalBody"></div>
+    <a id="modalLink" href="#" target="_blank" class="btn-primary" style="margin-top:32px; display:inline-block; font-size:0.75rem;">プレスリリースを読む →</a>
   </div>
 </div>
 
@@ -1435,19 +1436,22 @@
   // ── ニュースモーダル ──
   const newsData = [
     {
-      date: '2025.06.16',
+      date: '2025.06.07',
       title: '東京・八丁堀に実店舗をオープンしました',
-      body: '2025年6月16日、東京・八丁堀に「マツイノカヌレ」の実店舗をオープンしました。毎日焼きたてのカヌレをご用意しています。営業時間・アクセスは店舗情報欄をご確認ください。ご来店をお待ちしております。'
+      body: '2025年6月7日、東京・八丁堀に「マツイノカヌレ」の実店舗をオープンしました。毎日焼きたてのカヌレをご用意しています。営業時間・アクセスは店舗情報欄をご確認ください。ご来店をお待ちしております。',
+      link: null
     },
     {
-      date: '2025.05.10',
+      date: '2025.08.30',
       title: 'パリ・ポップアップ、おかげさまで完売しました',
-      body: '2025年5月、フランス・パリで開催したポップアップイベントにて、全商品を完売することができました。本場フランスのお客様にもご好評いただき、大変光栄に思っております。今後も国内外での展開を続けてまいります。'
+      body: '2025年8月、フランス・パリで開催したポップアップイベントにて、全商品を完売することができました。本場フランスのお客様にもご好評いただき、大変光栄に思っております。今後も国内外での展開を続けてまいります。',
+      link: null
     },
     {
-      date: '2025.04.01',
+      date: '2026.03.15',
       title: '1 Hotel Tokyo 会員向け特典スイーツに採用されました',
-      body: 'サステナブルラグジュアリーホテル「1 Hotel Tokyo」の会員向け特典スイーツとして、マツイノカヌレが採用されました。上質な空間にふさわしいカヌレをお届けできることを嬉しく思います。'
+      body: 'サステナブルラグジュアリーホテル「1 Hotel Tokyo」の会員向け特典スイーツとして、マツイノカヌレが採用されました。上質な空間にふさわしいカヌレをお届けできることを嬉しく思います。詳しくはプレスリリースをご覧ください。',
+      link: 'https://prtimes.jp/main/html/rd/p/000000003.000179776.html'
     }
   ];
 
@@ -1457,6 +1461,13 @@
     document.getElementById('modalDate').textContent = d.date;
     document.getElementById('modalTitle').textContent = d.title;
     document.getElementById('modalBody').textContent = d.body;
+    const linkEl = document.getElementById('modalLink');
+    if (d.link) {
+      linkEl.href = d.link;
+      linkEl.style.display = 'inline-block';
+    } else {
+      linkEl.style.display = 'none';
+    }
     document.getElementById('newsModal').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
