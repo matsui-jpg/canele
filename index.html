@@ -1186,6 +1186,7 @@
   </ul>
 </nav>
 
+<main>
 <!-- ── HERO ── -->
 <section class="hero">
   <div class="hero-bg"></div>
@@ -1484,6 +1485,8 @@
 </section>
 
 <!-- ── FOOTER ── -->
+</main>
+
 <footer>
   <div class="container">
     <div class="footer-inner">
@@ -1616,20 +1619,6 @@
   }
   function closeNewsIfOutside(e) {
     if (e.target === document.getElementById('newsModal')) closeNews();
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('.form-submit');
-    btn.textContent = '送信しました。ありがとうございます。';
-    btn.style.background = '#5C8A5C';
-    btn.style.letterSpacing = '0.15em';
-    setTimeout(() => {
-      btn.textContent = '送信する';
-      btn.style.background = '';
-      btn.style.letterSpacing = '';
-      e.target.reset();
-    }, 4000);
   }
 </script>
 </body>
