@@ -1486,7 +1486,7 @@
         </div>
         <div class="form-privacy">
           <input type="checkbox" id="privacy" required>
-          <label for="privacy">プライバシーポリシーに同意のうえ送信します。いただいた情報はお問い合わせへの対応のみに使用します。</label>
+          <label for="privacy"><a href="#" onclick="openPrivacy(event)" style="color:var(--gold2); text-decoration:underline; text-underline-offset:3px;">プライバシーポリシー</a>に同意のうえ送信します。いただいた情報はお問い合わせへの対応のみに使用します。</label>
         </div>
         <button type="submit" class="form-submit">送信する</button>
       </form>
@@ -1494,7 +1494,52 @@
   </div>
 </section>
 
+<!-- ── PRIVACY MODAL ── -->
+<div id="privacyModal" style="display:none; position:fixed; inset:0; background:rgba(28,21,16,0.75); z-index:300; align-items:center; justify-content:center; padding:24px;" onclick="closePrivacyIfOutside(event)">
+  <div style="background:var(--cream); max-width:560px; width:100%; padding:48px 44px; position:relative; max-height:80vh; overflow-y:auto;">
+    <button onclick="closePrivacy()" style="position:absolute; top:16px; right:20px; background:none; border:none; font-size:1.3rem; cursor:pointer; color:var(--warm); line-height:1;">✕</button>
+    <span style="font-family:'Cormorant Garamond',serif; font-size:0.72rem; font-style:italic; letter-spacing:0.3em; color:var(--gold); display:block; margin-bottom:12px;">Privacy Policy</span>
+    <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:400; color:var(--dark); letter-spacing:0.08em; margin-bottom:24px;">プライバシーポリシー</h3>
+    <div style="font-family:'Noto Serif JP',serif; font-size:0.82rem; font-weight:300; line-height:2.2; color:var(--warm); letter-spacing:0.06em;">
+      <p style="margin-bottom:16px;">マツイノカヌレ 東京本店（松井製菓株式会社）は、お客様の個人情報の取扱いについて、以下の通りプライバシーポリシーを定めます。</p>
+      <p style="font-weight:400; color:var(--dark); margin-bottom:6px;">1. 取得する情報</p>
+      <p style="margin-bottom:16px;">お問い合わせフォームご利用の際に、お名前・メールアドレス・会社名・お問い合わせ内容を取得します。</p>
+      <p style="font-weight:400; color:var(--dark); margin-bottom:6px;">2. 利用目的</p>
+      <p style="margin-bottom:16px;">取得した個人情報は、お問い合わせへの回答および関連する連絡のみに使用します。それ以外の目的には使用しません。</p>
+      <p style="font-weight:400; color:var(--dark); margin-bottom:6px;">3. 第三者への提供</p>
+      <p style="margin-bottom:16px;">法令に基づく場合を除き、お客様の個人情報を第三者に提供することはありません。</p>
+      <p style="font-weight:400; color:var(--dark); margin-bottom:6px;">4. 個人情報の管理</p>
+      <p style="margin-bottom:16px;">取得した個人情報は適切に管理し、紛失・漏洩・改ざんの防止に努めます。</p>
+      <p style="font-weight:400; color:var(--dark); margin-bottom:6px;">5. お問い合わせ</p>
+      <p style="margin-bottom:24px;">個人情報の取扱いに関するご質問は、matsui@matsuinocanele.com までご連絡ください。</p>
+      <p style="font-size:0.75rem; color:var(--gray);">制定日：2025年6月7日</p>
+    </div>
+  </div>
+</div>
+
 <!-- ── FOOTER ── -->
+<!-- ── PRIVACY MODAL ── -->
+<div class="news-modal-overlay" id="privacyModal" onclick="closePrivacyIfOutside(event)">
+  <div class="news-modal">
+    <button class="news-modal-close" onclick="closePrivacy()">✕</button>
+    <span class="news-modal-date">2025年6月7日 制定</span>
+    <h3 class="news-modal-title">プライバシーポリシー</h3>
+    <div class="news-modal-body" style="font-size:0.82rem; line-height:2.1;">
+      マツイノカヌレ 東京本店（松井製菓株式会社）は、お客様の個人情報の取扱いについて、以下の通りプライバシーポリシーを定めます。<br><br>
+      <strong style="color:var(--dark);">1. 取得する情報</strong><br>
+      お問い合わせフォームご利用の際に、お名前・メールアドレス・会社名・お問い合わせ内容を取得します。<br><br>
+      <strong style="color:var(--dark);">2. 利用目的</strong><br>
+      取得した個人情報は、お問い合わせへの回答および関連する連絡のみに使用します。それ以外の目的には使用しません。<br><br>
+      <strong style="color:var(--dark);">3. 第三者への提供</strong><br>
+      法令に基づく場合を除き、お客様の個人情報を第三者に提供することはありません。<br><br>
+      <strong style="color:var(--dark);">4. 個人情報の管理</strong><br>
+      取得した個人情報は適切に管理し、紛失・漏洩・改ざんの防止に努めます。<br><br>
+      <strong style="color:var(--dark);">5. お問い合わせ</strong><br>
+      個人情報の取扱いに関するご質問は、matsui@matsuinocanele.com までご連絡ください。
+    </div>
+  </div>
+</div>
+
 </main>
 
 <footer>
@@ -1552,6 +1597,35 @@
     });
   }, { threshold: 0.12 });
   reveals.forEach(el => observer.observe(el));
+
+  // ── プライバシーポリシーモーダル ──
+  function openPrivacy(e) {
+    e.preventDefault();
+    const modal = document.getElementById('privacyModal');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function closePrivacy() {
+    document.getElementById('privacyModal').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  function closePrivacyIfOutside(e) {
+    if (e.target === document.getElementById('privacyModal')) closePrivacy();
+  }
+
+  // ── プライバシーポリシーモーダル ──
+  function openPrivacy(e) {
+    e.preventDefault();
+    document.getElementById('privacyModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePrivacy() {
+    document.getElementById('privacyModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closePrivacyIfOutside(e) {
+    if (e.target === document.getElementById('privacyModal')) closePrivacy();
+  }
 
   // ── ニュースmore/less ──
   function toggleNewsMore() {
