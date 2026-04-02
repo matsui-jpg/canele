@@ -445,12 +445,6 @@ function toggle(id) {
   c.classList.toggle("open");
 }
 
-function togglePw(id) {
-  pwVisible[id] = !pwVisible[id];
-  render();
-  const card = document.getElementById("card-" + id);
-  if (card) card.classList.add("open");
-}
 
 function copyVal(id, field, btn) {
   const e = data.find(x => x.id == id);
@@ -463,3 +457,7 @@ function copyVal(id, field, btn) {
   });
 }
 
+render();
+</script>
+</body>
+</html>
