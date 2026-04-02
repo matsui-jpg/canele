@@ -546,7 +546,7 @@
   </header>
 
   <div class="list-area" id="list"></div>
-  <button class="fab" onclick="openSheet(null)" title="追加">+</button>
+
 </div>
 
 <!-- ════ BOTTOM SHEET ════ -->
@@ -677,14 +677,11 @@ function render() {
       <div class="card-body">
         ${e.url ? `<div class="field"><span class="field-label">URL</span><span class="field-val" style="color:#6b9fd4;font-size:12px">${esc(e.url)}</span></div>` : ""}
         ${e.user ? `<div class="field"><span class="field-label">ユーザー</span><span class="field-val">${esc(e.user)}</span><button class="copy-btn" onclick="copyVal('${e.id}','user',this)">コピー</button></div>` : ""}
-        ${e.pw ? `<div class="field"><span class="field-label">パスワード</span><div class="pw-row"><span class="pw-text field-val" id="pwt-${e.id}">${pwVisible[e.id] ? esc(e.pw) : "••••••••••"}</span><button class="icon-btn" onclick="togglePw('${e.id}')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>${pwVisible[e.id] ? '<path d="M3 3l18 18" stroke-linecap="round"/>' : ""}</svg></button><button class="copy-btn" onclick="copyVal('${e.id}','pw',this)">コピー</button></div></div>` : ""}
+        ${e.pw ? `<div class="field"><span class="field-label">パスワード</span><span class="field-val">${esc(e.pw)}</span><button class="copy-btn" onclick="copyVal('${e.id}','pw',this)">コピー</button></div>` : ""}
         ${e.twofa ? `<div class="field"><span class="field-label">2FA</span><span class="field-val serif">${esc(e.twofa)}</span></div>` : ""}
         ${e.author ? `<div class="field"><span class="field-label">担当</span><span class="field-val serif">${esc(e.author)}</span></div>` : ""}
         ${e.note ? `<div class="field"><span class="field-label">備考</span><span class="field-val note">${esc(e.note)}</span></div>` : ""}
-        <div class="card-actions">
-          <button class="action-btn" onclick="openSheet('${e.id}')">編集</button>
-          <button class="action-btn del" onclick="del('${e.id}')">削除</button>
-        </div>
+
       </div>
     </div>
   `).join("");
