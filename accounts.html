@@ -167,17 +167,6 @@
     font-family: var(--font-mono);
   }
 
-  .badge-2fa {
-    font-size: 9px;
-    letter-spacing: 0.06em;
-    background: rgba(90,156,114,0.15);
-    color: var(--green);
-    border: 1px solid rgba(90,156,114,0.3);
-    border-radius: 4px;
-    padding: 2px 6px;
-    flex-shrink: 0;
-    font-family: var(--font-mono);
-  }
 
   .chevron {
     color: var(--text3);
@@ -355,7 +344,6 @@ let data = [
     url: "https://www.infomart.co.jp/scripts/logon.asp",
     user: "naho.m@matsuinocanele.com",
     pw: "salada0201",
-    twofa: "なし",
     author: "",
     note: "サラダ食材"
   },
@@ -365,7 +353,6 @@ let data = [
     url: "https://www.monotaro.com/login/",
     user: "g9904743",
     pw: "v+KFw+TPj5qFiv.",
-    twofa: "なし",
     author: "",
     note: "各種備品"
   },
@@ -375,7 +362,6 @@ let data = [
     url: "https://www.infomart.co.jp/scripts/logon.asp",
     user: "matsui@matsuinocanele.com",
     pw: "Shunshun5421",
-    twofa: "なし",
     author: "",
     note: "バター／肉／スチコン洗剤"
   },
@@ -385,9 +371,35 @@ let data = [
     url: "https://guest.aterra.co.jp/",
     user: "matsui@matsuinocanele.com",
     pw: "mrWBZwfYJdX2ZPr",
-    twofa: "なし",
     author: "",
     note: "チョコレート"
+  },
+  {
+    id: 5,
+    name: "シモジマ(サラダ容器・紙袋)",
+    url: "https://shimojima.jp/shop/customer/menu.aspx",
+    user: "shunshun0608@gmail.com",
+    pw: "shunshun5421",
+    author: "",
+    note: ""
+  },
+  {
+    id: 6,
+    name: "Cotta(個包装袋)",
+    url: "https://www.cotta.jp/mypage/login.php",
+    user: "shunshun0608@gmail.com",
+    pw: "shunshun5421",
+    author: "",
+    note: ""
+  },
+  {
+    id: 7,
+    name: "パックネクスト(テイクアウト袋大・小)",
+    url: "https://packnext.jp/account/login",
+    user: "matsui@matsuinocanele.com",
+    pw: "shunshun5421",
+    author: "",
+    note: ""
   }
 ];
 
@@ -416,7 +428,6 @@ function render() {
           <div class="card-name">${esc(e.name)}</div>
           ${e.url ? `<div class="card-url">${esc(e.url.replace(/^https?:\/\//, ""))}</div>` : ""}
         </div>
-        ${e.twofa === "あり" ? `<span class="badge-2fa">2FA</span>` : ""}
         <svg class="chevron" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
           <path d="M6 4l4 4-4 4"/>
         </svg>
@@ -425,7 +436,6 @@ function render() {
         ${e.url ? `<div class="field"><span class="field-label">URL</span><span class="field-val" style="color:#6b9fd4;font-size:12px">${esc(e.url)}</span></div>` : ""}
         ${e.user ? `<div class="field"><span class="field-label">ユーザー</span><span class="field-val">${esc(e.user)}</span><button class="copy-btn" onclick="copyVal('${e.id}','user',this)">コピー</button></div>` : ""}
         ${e.pw ? `<div class="field"><span class="field-label">パスワード</span><span class="field-val">${esc(e.pw)}</span><button class="copy-btn" onclick="copyVal('${e.id}','pw',this)">コピー</button></div>` : ""}
-        ${e.twofa ? `<div class="field"><span class="field-label">2FA</span><span class="field-val serif">${esc(e.twofa)}</span></div>` : ""}
         ${e.author ? `<div class="field"><span class="field-label">担当</span><span class="field-val serif">${esc(e.author)}</span></div>` : ""}
         ${e.note ? `<div class="field"><span class="field-label">備考</span><span class="field-val note">${esc(e.note)}</span></div>` : ""}
 
