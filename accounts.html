@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<meta name="robots" content="noindex, nofollow">
 <title>アカウント管理 — マツイノカヌレ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -38,102 +37,7 @@
     color: var(--text);
     font-family: var(--font-serif);
     min-height: 100dvh;
-  }
-
-  /* ── login screen ── */
-  #lock-screen {
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 1.5rem;
-  }
-  .lock-logo {
-    font-size: 13px;
-    letter-spacing: 0.18em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 2.5rem;
-    opacity: 0.9;
-  }
-  .lock-icon {
-    width: 52px;
-    height: 52px;
-    border: 1px solid var(--border2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.75rem;
-    background: var(--surface);
-  }
-  .lock-title {
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--text);
-    text-align: center;
-    margin-bottom: 0.4rem;
-  }
-  .lock-sub {
-    font-size: 12px;
-    color: var(--text3);
-    text-align: center;
-    margin-bottom: 2rem;
-    font-family: var(--font-serif);
-  }
-  .lock-form {
-    width: 100%;
-    max-width: 300px;
-  }
-  .lock-input {
-    width: 100%;
-    padding: 13px 16px;
-    font-size: 16px;
-    font-family: var(--font-mono);
-    background: var(--surface);
-    border: 1px solid var(--border2);
-    border-radius: var(--r);
-    color: var(--text);
-    outline: none;
-    text-align: center;
-    letter-spacing: 0.1em;
-    -webkit-appearance: none;
-    transition: border-color 0.2s;
-  }
-  .lock-input:focus { border-color: var(--gold); }
-  .lock-input.error { border-color: var(--danger); animation: shake 0.3s; }
-  @keyframes shake {
-    0%,100%{transform:translateX(0)}
-    25%{transform:translateX(-6px)}
-    75%{transform:translateX(6px)}
-  }
-  .lock-btn {
-    width: 100%;
-    margin-top: 10px;
-    padding: 13px;
-    font-size: 14px;
-    font-family: var(--font-serif);
-    font-weight: 500;
-    background: var(--gold);
-    color: #1a1510;
-    border: none;
-    border-radius: var(--r);
-    cursor: pointer;
-    letter-spacing: 0.05em;
-    transition: opacity 0.15s;
-  }
-  .lock-btn:active { opacity: 0.8; }
-  .lock-err {
-    font-size: 12px;
-    color: var(--danger);
-    text-align: center;
-    margin-top: 10px;
-    min-height: 18px;
-    font-family: var(--font-serif);
-  }
-
-  /* ── main app ── */
+  }  /* ── main app ── */
   #app { display: none; }
   #app.visible { display: block; }
 
@@ -505,37 +409,12 @@
 </head>
 <body>
 
-<!-- ════ LOCK SCREEN ════ -->
-<div id="lock-screen">
-  <div class="lock-logo">Matsui no Canelé</div>
-  <div class="lock-icon">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5">
-      <rect x="3" y="11" width="18" height="11" rx="2"/>
-      <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-    </svg>
-  </div>
-  <h1 class="lock-title">スタッフ専用</h1>
-  <p class="lock-sub">合言葉を入力してください</p>
-  <div class="lock-form">
-    <input
-      class="lock-input"
-      id="pw-input"
-      type="password"
-      placeholder="合言葉"
-      autocomplete="current-password"
-      inputmode="text"
-    >
-    <button class="lock-btn" onclick="tryUnlock()">入る</button>
-    <div class="lock-err" id="lock-err"></div>
-  </div>
-</div>
-
 <!-- ════ MAIN APP ════ -->
-<div id="app">
+<div id="app" style="display:block">
   <header class="app-header">
     <div class="app-header-top">
       <span class="app-logo">Account List</span>
-      <button class="lock-out-btn" onclick="lockOut()">ロック</button>
+      
     </div>
     <div class="search-wrap">
       <svg class="search-icon" width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -548,11 +427,6 @@
   <div class="list-area" id="list"></div>
 
 </div>
-
-<!-- ════ BOTTOM SHEET ════ -->
-<div class="sheet-overlay" id="sheet-overlay" onclick="closeSheetOutside(event)">
-  <div class="sheet" id="sheet">
-    <div class="sheet-handle"></div>
     <div class="sheet-title" id="sheet-title">サービスを追加</div>
     <div class="mfield">
       <label>サービス名 *</label>
@@ -608,13 +482,43 @@ const SESSION_KEY = "mnc_unlocked";
 let data = [
   {
     id: 1,
-    name: "テスト",
-    url: "https://canele.vercel.app/",
-    user: "matsui@matsuinocanele.com",
-    pw: "testtest",
+    name: "八面六臂",
+    url: "https://www.infomart.co.jp/scripts/logon.asp",
+    user: "naho.m@matsuinocanele.com",
+    pw: "salada0201",
     twofa: "なし",
-    author: "松井",
-    note: "テストです"
+    author: "",
+    note: "サラダ食材"
+  },
+  {
+    id: 2,
+    name: "モノタロウ",
+    url: "https://www.monotaro.com/login/",
+    user: "g9904743",
+    pw: "v+KFw+TPj5qFiv.",
+    twofa: "なし",
+    author: "",
+    note: "各種備品"
+  },
+  {
+    id: 3,
+    name: "Infomart（タカナシ・三和ハム・ホシザキ）",
+    url: "https://www.infomart.co.jp/scripts/logon.asp",
+    user: "matsui@matsuinocanele.com",
+    pw: "Shunshun5421",
+    twofa: "なし",
+    author: "",
+    note: "バター／肉／スチコン洗剤"
+  },
+  {
+    id: 4,
+    name: "アルマテラ（チョコレート）",
+    url: "https://guest.aterra.co.jp/",
+    user: "matsui@matsuinocanele.com",
+    pw: "mrWBZwfYJdX2ZPr",
+    twofa: "なし",
+    author: "",
+    note: "チョコレート"
   }
 ];
 let editId = null;
@@ -625,39 +529,7 @@ function save2storage() {
 }
 
 // ── auth ──
-function tryUnlock() {
-  const val = document.getElementById("pw-input").value;
-  if (val === ACCESS_PASSWORD) {
-    sessionStorage.setItem(SESSION_KEY, "1");
-    showApp();
-  } else {
-    const inp = document.getElementById("pw-input");
-    const err = document.getElementById("lock-err");
-    inp.classList.add("error");
-    err.textContent = "合言葉が違います";
-    setTimeout(() => { inp.classList.remove("error"); inp.value = ""; }, 700);
-  }
-}
 
-function lockOut() {
-  sessionStorage.removeItem(SESSION_KEY);
-  location.reload();
-}
-
-function showApp() {
-  document.getElementById("lock-screen").style.display = "none";
-  const app = document.getElementById("app");
-  app.style.display = "block";
-  render();
-}
-
-// enter key on pw input
-document.getElementById("pw-input").addEventListener("keydown", e => {
-  if (e.key === "Enter") tryUnlock();
-});
-
-// check session
-if (sessionStorage.getItem(SESSION_KEY) === "1") showApp();
 
 // ── render ──
 function initial(name) { return (name || "?").charAt(0).toUpperCase(); }
