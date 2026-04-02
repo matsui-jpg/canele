@@ -605,7 +605,18 @@ const STORAGE_KEY = "mnc_accounts_v1";
 const SESSION_KEY = "mnc_unlocked";
 
 // ── data ──
-let data = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+let data = [
+  {
+    id: 1,
+    name: "テスト",
+    url: "https://canele.vercel.app/",
+    user: "matsui@matsuinocanele.com",
+    pw: "testtest",
+    twofa: "なし",
+    author: "松井",
+    note: "テストです"
+  }
+];
 let editId = null;
 let pwVisible = {};
 
