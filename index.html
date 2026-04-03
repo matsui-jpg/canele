@@ -1693,4 +1693,61 @@
     } else {
       imgContainer.style.display = 'none';
     }
-    document.getEleme
+    document.getElementById('newsModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeNews() {
+    document.getElementById('newsModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeNewsIfOutside(e) {
+    if (e.target === document.getElementById('newsModal')) closeNews();
+  }
+
+  // ── 言語切り替え ──
+  let currentLang = 'ja';
+  function toggleLang() {
+    currentLang = currentLang === 'ja' ? 'en' : 'ja';
+    const btn = document.getElementById('langToggle');
+    btn.textContent = currentLang === 'ja' ? 'EN' : 'JA';
+    document.querySelectorAll('[data-ja]').forEach(el => {
+      const text = el.getAttribute('data-' + currentLang);
+      if (!text) return;
+      if (el.tagName === 'OPTION') {
+        el.textContent = text;
+      } else if (el.children.length === 0 || el.tagName === 'P' || el.tagName === 'SPAN' || el.tagName === 'A' || el.tagName === 'BUTTON') {
+        el.innerHTML = text.replace(/\n/g, '<br>');
+      }
+    });
+    if (currentLang === 'en') {
+      document.querySelector('textarea.form-textarea').placeholder = 'Please enter your message.';
+    } else {
+      document.querySelector('textarea.form-textarea').placeholder = 'お問い合わせ内容をご記入ください。';
+    }
+  }
+
+  // ── プライバシーポリシーモーダル ──
+  function openPrivacy(e) {
+    e.preventDefault();
+    document.getElementById('privacyModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePrivacy() {
+    document.getElementById('privacyModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closePrivacyIfOutside(e) {
+    if (e.target === document.getElementById('privacyModal')) closePrivacy();
+  }
+
+  // ── ニュースmore/less ──
+  function toggleNewsMore() {
+    const hidden = document.querySelectorAll('.news-hidden');
+    const btn = document.getElementById('newsMoreBtn');
+    const isOpen = btn.textContent.includes('less');
+    hidden.forEach(el => el.style.display = isOpen ? 'none' : 'grid');
+    btn.textContent = isOpen ? 'more →' : '← less';
+  }
+</script>
+</body>
+</html>
