@@ -95,6 +95,22 @@
     transition: color 0.3s;
   }
   nav.scrolled .nav-links a { color: var(--warm); }
+  .mobile-lang-btn {
+    display: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.72rem;
+    font-style: italic;
+    letter-spacing: 0.2em;
+    border: 1px solid rgba(245,239,227,0.4);
+    color: rgba(245,239,227,0.8);
+    padding: 5px 12px;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  nav.scrolled .mobile-lang-btn {
+    border-color: rgba(61,43,26,0.4);
+    color: var(--warm);
+  }
   nav.scrolled .nav-lang-btn a {
     border-color: rgba(61,43,26,0.4) !important;
     color: var(--warm) !important;
@@ -1168,6 +1184,7 @@
     nav.scrolled { padding: 12px 24px; }
     .nav-links { display: none; }
     .nav-lang-btn { display: flex !important; }
+    .mobile-lang-btn { display: block !important; }
     .container { padding: 0 24px; }
     section { padding: 80px 0; }
 
@@ -1204,6 +1221,7 @@
     <li><a href="https://matsui-no-canele.square.site/" target="_blank" class="nav-cta">オンライン注文</a></li>
     <li class="nav-lang-btn"><a href="en.html" style="font-family:'Cormorant Garamond',serif; font-size:0.72rem; font-style:italic; letter-spacing:0.2em; border:1px solid rgba(245,239,227,0.4); color:rgba(245,239,227,0.8); padding:5px 12px; text-decoration:none; transition:all 0.3s;">EN</a></li>
   </ul>
+  <a href="en.html" class="mobile-lang-btn">EN</a>
 </nav>
 
 <main>
