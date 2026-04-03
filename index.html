@@ -942,15 +942,6 @@
   }
   .sns-links a:hover { color: var(--gold2); }
 
-  nav.scrolled #langToggle {
-    border-color: rgba(61,43,26,0.4);
-    color: var(--warm);
-  }
-  nav.scrolled #langToggle:hover {
-    border-color: var(--gold2);
-    color: var(--gold2);
-  }
-
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
@@ -1197,12 +1188,11 @@
 <nav id="nav">
   <a href="#" class="nav-logo">Matsui no Canelé</a>
   <ul class="nav-links">
-    <li><a href="#about" data-ja="ブランドについて" data-en="About">ブランドについて</a></li>
-    <li><a href="#news" data-ja="お知らせ" data-en="News">お知らせ</a></li>
-    <li><a href="#shop" data-ja="店舗情報" data-en="Shop">店舗情報</a></li>
-    <li><a href="#contact" data-ja="お問い合わせ" data-en="Contact">お問い合わせ</a></li>
-    <li><a href="https://matsui-no-canele.square.site/" target="_blank" class="nav-cta" data-ja="オンライン注文" data-en="Order Online">オンライン注文</a></li>
-    <li><button id="langToggle" onclick="toggleLang()" style="background:none; border:1px solid rgba(245,239,227,0.4); color:rgba(245,239,227,0.8); font-family:'Cormorant Garamond',serif; font-size:0.72rem; font-style:italic; letter-spacing:0.2em; padding:5px 12px; cursor:pointer; transition:all 0.3s;">EN</button></li>
+    <li><a href="#about">ブランドについて</a></li>
+    <li><a href="#news">お知らせ</a></li>
+    <li><a href="#shop">店舗情報</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+    <li><a href="https://matsui-no-canele.square.site/" target="_blank" class="nav-cta">オンライン注文</a></li>
   </ul>
 </nav>
 
@@ -1215,13 +1205,13 @@
   <div class="hero-line-right"></div>
   <div class="hero-content">
     <img src="logo.png" alt="マツイノカヌレ" style="width: min(320px, 70vw); margin-bottom: 24px; display: block; margin-left: auto; margin-right: auto;">
-    <p class="hero-subtitle-jp" data-ja="東京・八丁堀のカヌレ専門店" data-en="Artisan Canelé Specialist — Hatchobori, Tokyo">東京・八丁堀のカヌレ専門店</p>
+    <p class="hero-subtitle-jp">東京・八丁堀のカヌレ専門店</p>
     <div class="hero-divider"></div>
-    <p class="hero-desc" data-ja="ボルドーの伝統を、東京から世界へ。" data-en="From the tradition of Bordeaux, to the world from Tokyo.">
+    <p class="hero-desc">
       ボルドーの伝統を、東京から世界へ。
     </p>
     <div class="hero-btns">
-      <a href="https://matsui-no-canele.square.site/" target="_blank" class="btn-primary" data-ja="オンラインで注文する" data-en="Order Online">オンラインで注文する</a>
+      <a href="https://matsui-no-canele.square.site/" target="_blank" class="btn-primary">オンラインで注文する</a>
     </div>
   </div>
 </section>
@@ -1293,18 +1283,18 @@
       <div class="about-text">
         <span class="section-eyebrow reveal">Notre Histoire</span>
         <h2 class="section-title reveal reveal-delay-1">
-          <span data-ja="カヌレひとすじ。" data-en="Devoted to Canelé.">カヌレひとすじ。</span><br>
-          <em data-ja="本質" data-en="Pursuing">本質</em><span data-ja="の追求。" data-en=" the Essence.">の追求。</span>
+          <span>カヌレひとすじ。</span><br>
+          <em>本質</em><span>の追求。</span>
         </h2>
         <div class="section-divider reveal reveal-delay-2"></div>
-        <p class="reveal reveal-delay-2" data-ja="2025年6月、東京・八丁堀に誕生したカヌレ専門店。毎日、製造してすぐの焼きたてカヌレを提供しています。" data-en="A canelé specialty shop born in Hatchobori, Tokyo in June 2025. We serve freshly baked canelés every day, straight from the oven.">
+        <p class="reveal reveal-delay-2">
           2025年6月、東京・八丁堀に誕生したカヌレ専門店。
 毎日、製造してすぐの焼きたてカヌレを提供しています。
         </p>
-        <p class="reveal reveal-delay-2" data-ja="2025年、パリでのポップアップを開催し完売。本場フランスでも認められた品質を、東京から全国へお届けしています。" data-en="In 2025, we held a pop-up in Paris and sold out completely. Quality recognized even in France itself, delivered nationwide from Tokyo.">
+        <p class="reveal reveal-delay-2">
           2025年、パリでのポップアップを開催し完売。本場フランスでも認められた品質を、東京から全国へお届けしています。
         </p>
-        <p class="reveal reveal-delay-2" data-ja="サステナブルラグジュアリーホテル「1Hotel Tokyo」の会員向け特典スイーツとして採用されるなど、国内外のラグジュアリーシーンにも着実に浸透しています。" data-en="Selected as the exclusive guest amenity sweet at sustainable luxury hotel 1 Hotel Tokyo, our presence in the domestic and international luxury scene continues to grow.">
+        <p class="reveal reveal-delay-2">
           サステナブルラグジュアリーホテル「1Hotel Tokyo」の会員向け特典スイーツとして採用されるなど、国内外のラグジュアリーシーンにも着実に浸透しています。
         </p>
       </div>
@@ -1334,12 +1324,12 @@
 <section class="paris">
   <div class="container">
     <span class="section-eyebrow reveal">2025 — Paris</span>
-    <h2 class="section-title reveal reveal-delay-1"><span data-ja="本場フランスで、" data-en="Proven in">本場フランスで、</span><br><em data-ja="証明" data-en="France">証明</em><span data-ja="した。" data-en=" Itself.">した。</span></h2>
+    <h2 class="section-title reveal reveal-delay-1"><span>本場フランスで、</span><br><em>証明</em><span>した。</span></h2>
     <div class="section-divider reveal reveal-delay-1"></div>
-    <p class="paris-body reveal reveal-delay-2" data-ja="2025年、パリでのポップアップを開催し完売。本場フランスでも「本物だ」と言わしめました。" data-en="In 2025, our Paris pop-up sold out completely — earning the verdict of 'the real thing' in France itself.">
+    <p class="paris-body reveal reveal-delay-2">
       2025年、パリでのポップアップを開催し完売。本場フランスでも「本物だ」と言わしめました。
     </p>
-    <a href="https://matsui-no-canele.square.site/" target="_blank" class="btn-primary reveal reveal-delay-2" data-ja="オンラインで注文する" data-en="Order Online">オンラインで注文する</a>
+    <a href="https://matsui-no-canele.square.site/" target="_blank" class="btn-primary reveal reveal-delay-2">オンラインで注文する</a>
   </div>
 </section>
 
@@ -1347,7 +1337,7 @@
 <section class="voices">
   <div class="container">
     <span class="section-eyebrow reveal">Customer Voices</span>
-    <h2 class="section-title reveal reveal-delay-1"><span data-ja="お客様の" data-en="Customer ">お客様の</span><em data-ja="声" data-en="Voices">声</em></h2>
+    <h2 class="section-title reveal reveal-delay-1"><span>お客様の</span><em>声</em></h2>
     <div class="section-divider reveal reveal-delay-1"></div>
   </div>
   <div class="voices-track">
@@ -1382,28 +1372,28 @@
 <section class="shop" id="shop">
   <div class="container">
     <span class="section-eyebrow reveal">Notre Boutique</span>
-    <h2 class="section-title reveal reveal-delay-1"><span data-ja="店舗" data-en="Shop ">店舗</span><em data-ja="案内" data-en="Info">案内</em></h2>
+    <h2 class="section-title reveal reveal-delay-1"><span>店舗</span><em>案内</em></h2>
     <div class="section-divider reveal reveal-delay-1"></div>
     <div class="shop-inner">
       <div class="reveal">
-        <span class="shop-info-title" data-ja="住所" data-en="Address">住所</span>
+        <span class="shop-info-title">住所</span>
         <span class="shop-info-value">
           〒104-0032<br>
-          <span data-ja="東京都中央区八丁堀３－２７－１４" data-en="3-27-14 Hatchobori, Chuo-ku, Tokyo">東京都中央区八丁堀３－２７－１４</span>
+          <span>東京都中央区八丁堀３－２７－１４</span>
         </span>
 
-        <span class="shop-info-title" data-ja="最寄り駅" data-en="Nearest Station">最寄り駅</span>
+        <span class="shop-info-title">最寄り駅</span>
         <span class="shop-info-value">
-          <span data-ja="東京メトロ日比谷線・JR京葉線" data-en="Tokyo Metro Hibiya Line / JR Keiyo Line">東京メトロ日比谷線・JR京葉線</span><br>
-          <span data-ja="八丁堀駅 徒歩3分" data-en="Hatchobori Station, 3 min walk">八丁堀駅 徒歩3分</span>
+          <span>東京メトロ日比谷線・JR京葉線</span><br>
+          <span>八丁堀駅 徒歩3分</span>
         </span>
 
-        <span class="shop-info-title" data-ja="営業時間" data-en="Hours">営業時間</span>
+        <span class="shop-info-title">営業時間</span>
         <table class="hours-table">
           <thead>
             <tr>
               <th></th>
-              <th data-ja="月" data-en="Mon">月</th><th data-ja="火" data-en="Tue">火</th><th data-ja="水" data-en="Wed">水</th><th data-ja="木" data-en="Thu">木</th><th data-ja="金" data-en="Fri">金</th><th data-ja="土" data-en="Sat">土</th><th data-ja="日" data-en="Sun">日</th>
+              <th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日</th>
             </tr>
           </thead>
           <tbody>
@@ -1420,11 +1410,11 @@
           </tbody>
         </table>
 
-        <span class="shop-info-title" data-ja="価格" data-en="Price">価格</span>
-        <span class="shop-info-value" data-ja="カヌレ 330円〜380円（税込）" data-en="Canelé ¥330–¥380 (tax incl.)">カヌレ 330円〜380円（税込）</span>
+        <span class="shop-info-title">価格</span>
+        <span class="shop-info-value">カヌレ 330円〜380円（税込）</span>
 
-        <span class="shop-info-title" data-ja="オンライン注文" data-en="Online Order">オンライン注文</span>
-        <a href="https://matsui-no-canele.square.site/" target="_blank" class="btn-primary" style="margin-top:8px; display:inline-block;" data-ja="Square ECサイトへ" data-en="Visit Online Shop">Square ECサイトへ</a>
+        <span class="shop-info-title">オンライン注文</span>
+        <a href="https://matsui-no-canele.square.site/" target="_blank" class="btn-primary" style="margin-top:8px; display:inline-block;">Square ECサイトへ</a>
       </div>
 
       <div class="reveal reveal-delay-1">
@@ -1446,12 +1436,12 @@
 <section class="contact" id="contact">
   <div class="container">
     <span class="section-eyebrow reveal">Contact</span>
-    <h2 class="section-title reveal reveal-delay-1"><span data-ja="お問い" data-en="Get in ">お問い</span><em data-ja="合わせ" data-en="Touch">合わせ</em></h2>
+    <h2 class="section-title reveal reveal-delay-1"><span>お問い</span><em>合わせ</em></h2>
     <div class="section-divider reveal reveal-delay-1"></div>
 
     <div class="contact-inner">
       <div class="reveal">
-        <p class="contact-intro" data-ja="卸売・メディア掲載・コラボレーション・ギフトのご相談など、お気軽にお問い合わせください。&#10;&#10;通常2〜3営業日以内にご返信いたします。" data-en="For wholesale, media, collaborations, gifts, or any other inquiries, please feel free to contact us.&#10;&#10;We typically respond within 2–3 business days.">
+        <p class="contact-intro">
           卸売・メディア掲載・コラボレーション・ギフトのご相談など、お気軽にお問い合わせください。<br><br>
           通常2〜3営業日以内にご返信いたします。
         </p>
@@ -1459,7 +1449,7 @@
           Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1479756067617d5479756067617d7a7b77757a7178713a777b79">[email&#160;protected]</a><br>
           Tel: 080-2516-1452<br>
           Instagram: @matsui_no_canele_tokyo<br><br>
-          <span data-ja="SNSのDMでもお気軽にどうぞ。" data-en="Feel free to reach us via DM on social media.">SNSのDMでもお気軽にどうぞ。</span>
+          <span>SNSのDMでもお気軽にどうぞ。</span>
         </div>
       </div>
 
@@ -1467,38 +1457,38 @@
         <input type="hidden" name="_next" value="https://canele.vercel.app/#contact">
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label"><span data-ja="お名前" data-en="Name">お名前</span> <span class="req">*</span></label>
+            <label class="form-label"><span>お名前</span> <span class="req">*</span></label>
             <input type="text" name="お名前" class="form-input" placeholder="松井 俊" required>
           </div>
           <div class="form-group">
-            <label class="form-label"><span data-ja="会社・店舗名" data-en="Company / Shop">会社・店舗名</span></label>
+            <label class="form-label"><span>会社・店舗名</span></label>
             <input type="text" name="会社・店舗名" class="form-input" placeholder="株式会社〇〇">
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label"><span data-ja="メールアドレス" data-en="Email">メールアドレス</span> <span class="req">*</span></label>
+          <label class="form-label"><span>メールアドレス</span> <span class="req">*</span></label>
           <input type="email" name="email" class="form-input" placeholder="hello@example.com" required>
         </div>
         <div class="form-group">
-          <label class="form-label"><span data-ja="お問い合わせ種別" data-en="Inquiry Type">お問い合わせ種別</span></label>
+          <label class="form-label"><span>お問い合わせ種別</span></label>
           <select name="お問い合わせ種別" class="form-select">
-            <option value="" data-ja="選択してください" data-en="Please select">選択してください</option>
-            <option data-ja="商品・購入について" data-en="Product / Purchase">商品・購入について</option>
-            <option data-ja="卸売・仕入れについて" data-en="Wholesale">卸売・仕入れについて</option>
-            <option data-ja="メディア・取材について" data-en="Media / Press">メディア・取材について</option>
-            <option data-ja="コラボレーション・ギフト" data-en="Collaboration / Gift">コラボレーション・ギフト</option>
-            <option data-ja="その他" data-en="Other">その他</option>
+            <option value="">選択してください</option>
+            <option>商品・購入について</option>
+            <option>卸売・仕入れについて</option>
+            <option>メディア・取材について</option>
+            <option>コラボレーション・ギフト</option>
+            <option>その他</option>
           </select>
         </div>
         <div class="form-group">
-          <label class="form-label"><span data-ja="メッセージ" data-en="Message">メッセージ</span> <span class="req">*</span></label>
+          <label class="form-label"><span>メッセージ</span> <span class="req">*</span></label>
           <textarea name="メッセージ" class="form-textarea" placeholder="お問い合わせ内容をご記入ください。" required></textarea>
         </div>
         <div class="form-privacy">
           <input type="checkbox" id="privacy" required>
-          <label for="privacy"><a href="#" onclick="openPrivacy(event)" style="color:var(--gold2); text-decoration:underline; text-underline-offset:3px;" data-ja="プライバシーポリシー" data-en="Privacy Policy">プライバシーポリシー</a><span data-ja="に同意のうえ送信します。いただいた情報はお問い合わせへの対応のみに使用します。" data-en=" — I agree to the privacy policy. Your information will only be used to respond to your inquiry.">に同意のうえ送信します。いただいた情報はお問い合わせへの対応のみに使用します。</span></label>
+          <label for="privacy"><a href="#" onclick="openPrivacy(event)" style="color:var(--gold2); text-decoration:underline; text-underline-offset:3px;">プライバシーポリシー</a><span>に同意のうえ送信します。いただいた情報はお問い合わせへの対応のみに使用します。</span></label>
         </div>
-        <button type="submit" class="form-submit" data-ja="送信する" data-en="Send">送信する</button>
+        <button type="submit" class="form-submit">送信する</button>
       </form>
     </div>
   </div>
@@ -1535,19 +1525,19 @@
       <div>
         <span class="footer-brand-name">マツイノカヌレ 東京本店</span>
         <span class="footer-tagline">Artisan Canelé — Tokyo Hatchobori</span>
-        <p class="footer-desc" data-ja="東京・八丁堀のカヌレ専門店。&#10;毎日焼きたてのカヌレを、&#10;東京から全国へお届けします。" data-en="Artisan canelé specialist in Hatchobori, Tokyo.&#10;Freshly baked every day,&#10;delivered nationwide from Tokyo.">
+        <p class="footer-desc">
           東京・八丁堀のカヌレ専門店。<br>
           毎日焼きたてのカヌレを、<br>
           東京から全国へお届けします。
         </p>
       </div>
       <div>
-        <span class="footer-col-title" data-ja="ページ" data-en="Pages">ページ</span>
+        <span class="footer-col-title">ページ</span>
         <ul class="footer-links">
-          <li><a href="#about" data-ja="ブランドについて" data-en="About">ブランドについて</a></li>
-          <li><a href="#shop" data-ja="店舗情報" data-en="Shop Info">店舗情報</a></li>
-          <li><a href="#contact" data-ja="お問い合わせ" data-en="Contact">お問い合わせ</a></li>
-          <li><a href="https://matsui-no-canele.square.site/" target="_blank" data-ja="オンライン注文" data-en="Online Order">オンライン注文</a></li>
+          <li><a href="#about">ブランドについて</a></li>
+          <li><a href="#shop">店舗情報</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+          <li><a href="https://matsui-no-canele.square.site/" target="_blank">オンライン注文</a></li>
         </ul>
       </div>
       <div>
@@ -1555,8 +1545,8 @@
         <ul class="footer-links">
           <li><a href="https://www.instagram.com/matsui_no_canele_tokyo" target="_blank">Instagram</a></li>
         </ul>
-        <span class="footer-col-title" style="margin-top:32px; display:block;" data-ja="所在地" data-en="Location">所在地</span>
-        <p class="footer-desc" data-ja="東京都中央区&#10;八丁堀３－２７－１４" data-en="3-27-14 Hatchobori&#10;Chuo-ku, Tokyo">東京都中央区<br>八丁堀３－２７－１４</p>
+        <span class="footer-col-title" style="margin-top:32px; display:block;">所在地</span>
+        <p class="footer-desc">東京都中央区<br>八丁堀３－２７－１４</p>
       </div>
     </div>
     <div class="footer-bottom">
@@ -1584,33 +1574,6 @@
     });
   }, { threshold: 0.12 });
   reveals.forEach(el => observer.observe(el));
-
-  // ── 言語切り替え ──
-  let currentLang = 'ja';
-  function toggleLang() {
-    currentLang = currentLang === 'ja' ? 'en' : 'ja';
-    const btn = document.getElementById('langToggle');
-    btn.textContent = currentLang === 'ja' ? 'EN' : 'JA';
-    document.querySelectorAll('[data-ja]').forEach(el => {
-      const text = el.getAttribute('data-' + currentLang);
-      if (!text) return;
-      if (el.children.length === 0) {
-        el.textContent = text.replace(/\\n/g, '\n');
-      } else if (el.tagName === 'P' || el.tagName === 'SPAN' || el.tagName === 'A' || el.tagName === 'BUTTON') {
-        el.innerHTML = text.replace(/\n/g, '<br>');
-      }
-    });
-    // select optionも切り替え
-    document.querySelectorAll('option[data-ja]').forEach(opt => {
-      opt.textContent = opt.getAttribute('data-' + currentLang);
-    });
-    // placeholder切り替え
-    if (currentLang === 'en') {
-      document.querySelector('textarea.form-textarea').placeholder = 'Please enter your message.';
-    } else {
-      document.querySelector('textarea.form-textarea').placeholder = 'お問い合わせ内容をご記入ください。';
-    }
-  }
 
   // ── プライバシーポリシーモーダル ──
   function openPrivacy(e) {
@@ -1702,28 +1665,6 @@
   }
   function closeNewsIfOutside(e) {
     if (e.target === document.getElementById('newsModal')) closeNews();
-  }
-
-  // ── 言語切り替え ──
-  let currentLang = 'ja';
-  function toggleLang() {
-    currentLang = currentLang === 'ja' ? 'en' : 'ja';
-    const btn = document.getElementById('langToggle');
-    btn.textContent = currentLang === 'ja' ? 'EN' : 'JA';
-    document.querySelectorAll('[data-ja]').forEach(el => {
-      const text = el.getAttribute('data-' + currentLang);
-      if (!text) return;
-      if (el.tagName === 'OPTION') {
-        el.textContent = text;
-      } else if (el.children.length === 0 || el.tagName === 'P' || el.tagName === 'SPAN' || el.tagName === 'A' || el.tagName === 'BUTTON') {
-        el.innerHTML = text.replace(/\n/g, '<br>');
-      }
-    });
-    if (currentLang === 'en') {
-      document.querySelector('textarea.form-textarea').placeholder = 'Please enter your message.';
-    } else {
-      document.querySelector('textarea.form-textarea').placeholder = 'お問い合わせ内容をご記入ください。';
-    }
   }
 
   // ── プライバシーポリシーモーダル ──
