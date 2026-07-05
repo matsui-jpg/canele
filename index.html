@@ -552,6 +552,152 @@
   .flavor-link:hover { gap: 14px; }
   .flavor-link::after { content: '→'; }
 
+
+  /* ── MENU / お品書き ── */
+  .menu {
+    background: var(--cream2);
+    padding: 120px 0;
+  }
+  .menu-list { max-width: 760px; margin: 48px auto 0; }
+  .menu-cat {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    font-style: italic;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 64px 0 6px;
+  }
+  .menu-cat:first-child { margin-top: 0; }
+  .menu-cat::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(184,131,58,0.3);
+  }
+  .menu-cat-note {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--gray);
+    margin-top: 4px;
+  }
+  .menu-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 24px;
+    align-items: baseline;
+    padding: 20px 0 18px;
+    border-bottom: 1px solid rgba(184,131,58,0.18);
+  }
+  .menu-item-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.98rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: var(--dark);
+  }
+  .menu-item-name .en {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    margin-left: 12px;
+    white-space: nowrap;
+  }
+  .menu-item-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    letter-spacing: 0.04em;
+    color: var(--dark);
+    white-space: nowrap;
+  }
+  .menu-item-desc {
+    grid-column: 1 / -1;
+    font-size: 0.82rem;
+    font-weight: 300;
+    line-height: 1.95;
+    letter-spacing: 0.05em;
+    color: var(--gray);
+    margin-top: 8px;
+    max-width: 580px;
+  }
+  .menu-limited-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--cream);
+    font-size: 0.58rem;
+    letter-spacing: 0.22em;
+    padding: 3px 9px;
+    margin-left: 12px;
+    vertical-align: 2px;
+  }
+  .menu-set {
+    margin: 72px auto 0;
+    max-width: 760px;
+    background: var(--dark);
+    border: 1px solid rgba(212,168,90,0.35);
+    padding: 52px 40px 48px;
+    text-align: center;
+    position: relative;
+  }
+  .menu-set-eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.78rem;
+    letter-spacing: 0.4em;
+    color: var(--gold2);
+    display: block;
+    margin-bottom: 14px;
+  }
+  .menu-set-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(1.2rem, 2.6vw, 1.5rem);
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    color: var(--cream);
+  }
+  .menu-set-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.3rem;
+    font-weight: 300;
+    color: var(--gold2);
+    margin-top: 10px;
+    letter-spacing: 0.03em;
+  }
+  .menu-set-price small {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    color: rgba(245,239,227,0.7);
+  }
+  .menu-set-desc {
+    font-size: 0.86rem;
+    font-weight: 300;
+    line-height: 2.05;
+    letter-spacing: 0.06em;
+    color: rgba(245,239,227,0.85);
+    margin: 20px auto 0;
+    max-width: 480px;
+  }
+  .menu-footnote {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    line-height: 2;
+    color: var(--gray);
+    margin-top: 48px;
+  }
+  .menu-cta { text-align: center; margin-top: 32px; }
+
+  @media (max-width: 600px) {
+    .menu-item-name .en { display: block; margin: 4px 0 0; }
+    .menu-set { padding: 40px 24px 38px; }
+  }
+
   /* ── FEATURES / こだわり ── */
   .features {
     background: var(--cream2);
@@ -1216,6 +1362,7 @@
   <ul class="nav-links">
     <li><a href="#about">ブランドについて</a></li>
     <li><a href="#news">お知らせ</a></li>
+    <li><a href="#menu">メニュー</a></li>
     <li><a href="#shop">店舗情報</a></li>
     <li><a href="#contact">お問い合わせ</a></li>
     <li><a href="https://matsui-no-canele.square.site/" target="_blank" class="nav-cta">オンライン注文</a></li>
@@ -1286,6 +1433,112 @@
     </div>
   </div>
 </section>
+
+<!-- ── MENU ── -->
+<section class="menu" id="menu">
+  <div class="container">
+    <span class="section-eyebrow reveal">Notre Carte</span>
+    <h2 class="section-title reveal reveal-delay-1"><span>メニューと</span><em>価格</em></h2>
+    <div class="section-divider reveal reveal-delay-1"></div>
+    <p class="reveal reveal-delay-2" style="font-size:0.88rem; font-weight:300; letter-spacing:0.08em; line-height:2; color:var(--gray);">
+      毎日、店内の工房で焼き上げています。表示はすべて税込価格です。
+    </p>
+
+    <div class="menu-list">
+
+      <h3 class="menu-cat reveal">Canelé</h3>
+
+      <div class="menu-item reveal">
+        <span class="menu-item-name">プレーンカヌレ<span class="en">Plain Canelé</span></span>
+        <span class="menu-item-price">¥330</span>
+        <p class="menu-item-desc">外はカリッと香ばしく、中はラム酒とバニラが香るしっとりとした生地。マツイノカヌレの原点であり、いちばんの定番です。</p>
+      </div>
+
+      <div class="menu-item reveal">
+        <span class="menu-item-name">アールグレイカヌレ<span class="en">Earl Grey Canelé</span></span>
+        <span class="menu-item-price">¥350</span>
+        <p class="menu-item-desc">ベルガモットの華やかな香りを生地に閉じ込めた、紅茶好きのための一品。</p>
+      </div>
+
+      <div class="menu-item reveal">
+        <span class="menu-item-name">ショコラカヌレ<span class="en">Chocolat Canelé</span></span>
+        <span class="menu-item-price">¥380</span>
+        <p class="menu-item-desc">カカオのほろ苦さとコクを重ねた、濃厚な味わいのカヌレ。</p>
+      </div>
+
+      <div class="menu-item reveal">
+        <!-- ★編集ポイント：期間限定フレーバー名はここを書き換え（約1.5ヶ月周期） -->
+        <span class="menu-item-name">期間限定フレーバー<span class="en">Seasonal Canelé</span><span class="menu-limited-badge">LIMITED</span></span>
+        <span class="menu-item-price">¥380</span>
+        <p class="menu-item-desc">季節ごとに入れ替わる限定の味。最新のフレーバーはInstagramでお知らせしています。</p>
+      </div>
+
+    </div>
+
+    <div class="menu-set reveal">
+      <span class="menu-set-eyebrow">Signature Set</span>
+      <p class="menu-set-name">おすきな6個セット</p>
+      <p class="menu-set-price">¥1,980 <small>tax in</small></p>
+      <p class="menu-set-desc">
+        4種類のカヌレから、お好きな組み合わせで6個。<br>
+        どのフレーバーを選んでも同じ価格でお楽しみいただける、<br>
+        いちばん人気のセットです。手土産・ギフトにもどうぞ。
+      </p>
+    </div>
+
+    <div class="menu-list">
+
+      <h3 class="menu-cat reveal">Dessert</h3>
+
+      <div class="menu-item reveal">
+        <span class="menu-item-name">バスクチーズケーキ<span class="en">Basque Cheesecake</span></span>
+        <span class="menu-item-price">¥780</span>
+        <p class="menu-item-desc">表面を香ばしく焼き上げた、濃厚でなめらかな口どけのチーズケーキ。</p>
+      </div>
+
+      <h3 class="menu-cat reveal">Drink</h3>
+
+      <div class="menu-item reveal">
+        <span class="menu-item-name">コーヒー（アイス／ホット）<span class="en">Coffee — Iced / Hot</span></span>
+        <span class="menu-item-price">¥400</span>
+      </div>
+
+      <div class="menu-item reveal">
+        <span class="menu-item-name">カフェラテ<span class="en">Cafe Latte</span></span>
+        <span class="menu-item-price">¥500</span>
+      </div>
+
+      <div class="menu-item reveal">
+        <span class="menu-item-name">アイスティー<span class="en">Iced Tea</span></span>
+        <span class="menu-item-price">¥400</span>
+      </div>
+
+      <div class="menu-item reveal">
+        <span class="menu-item-name">自家製レモンスカッシュ<span class="en">Homemade Lemon Squash</span></span>
+        <span class="menu-item-price">¥600</span>
+      </div>
+
+      <div class="menu-item reveal">
+        <span class="menu-item-name">完熟梅のアイスティーソーダ<span class="en">Ume Iced Tea Soda</span></span>
+        <span class="menu-item-price">¥600</span>
+      </div>
+
+
+
+    </div>
+
+    <p class="menu-footnote reveal">
+      商品は売り切れ次第終了となります。<br>
+      冷凍便での全国配送・ギフトボックスはオンラインストアをご利用ください。
+    </p>
+
+    <div class="menu-cta reveal">
+      <a href="https://matsui-no-canele.square.site/" target="_blank" class="btn-primary">オンラインで注文する</a>
+    </div>
+
+  </div>
+</section>
+
 
 <!-- ── NEWS MODAL ── -->
 <div class="news-modal-overlay" id="newsModal" onclick="closeNewsIfOutside(event)">
@@ -1563,6 +1816,7 @@
         <span class="footer-col-title">ページ</span>
         <ul class="footer-links">
           <li><a href="#about">ブランドについて</a></li>
+          <li><a href="#menu">メニュー</a></li>
           <li><a href="#shop">店舗情報</a></li>
           <li><a href="#contact">お問い合わせ</a></li>
           <li><a href="https://matsui-no-canele.square.site/" target="_blank">オンライン注文</a></li>
